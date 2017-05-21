@@ -31,16 +31,15 @@ namespace NUnit.PitStop_
             Wait.ElementIsVisible(xpathselectoption);
 
             List<IWebElement> brand = browser.FindElements(By.XPath(xpathselectoption)).ToList();
-            int i;
-            for (i = 0; i < brand.Count; i++)
+            foreach(IWebElement element in brand)
             {
-                if (brand[i].Text.Contains(brandname))
+                if(element.Text == brandname)
                 {
-                    brand[i].Click();
+                    element.Click();
                     break;
                 }
             }
-            Reports.AddLog(brand[i].Text);
+            Reports.AddLog(element.Text);
         }
     }
 }

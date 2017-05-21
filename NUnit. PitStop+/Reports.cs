@@ -33,9 +33,11 @@ namespace NUnit.PitStop_
             test.Log(LogStatus.Info, logdescription);
         }
 
-        public static void AddScreenShot()
+        public static void AddScreenShot(string screenshotname)
         {
-
+            ITakesScreenshot screenshotdriver = browser as ITakesScreenshot;
+            Screenshot screenshot = screenshotdriver.GetScreenshot();
+            screenshot.SaveAsFile("D:\\Загрузки\\" + screenshotname + ".gif", ScreenshotImageFormat.Gif);
         }
     }
 }
