@@ -10,23 +10,41 @@ using RelevantCodes.ExtentReports;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 
 namespace NUnit.PitStop_
 {
+
+    // Enum Tires brand
+    enum TiresBrand
+    {
+        Производитель,
+        Achilles,
+        BFGoodrich,
+        Bridgestone,
+        Continental,
+        Cooper,
+        Dunlop,
+        Gislaved,
+        Goodyear,
+        Hankook,
+        Kumho,
+        MATADOR,
+        Michelin,
+        Nokian,
+        Roadstone,
+        Tigar,
+        Yokohama
+    }
     public class DataClass
     {
-       public IWebDriver browser;
+        // DATA
+
+        public static IWebDriver browser;
         public IWebElement element;
 
-        public List<object> TiresSearchParameters(string producer, double width, double protector, double diameter, string season)
-        {
-            List<object> tireschange = new List<object>();
-            tireschange.Add(producer); // производитель
-            tireschange.Add(width); // ширина
-            tireschange.Add(protector); // профиль
-            tireschange.Add(diameter); // диаметр
-            tireschange.Add(season); // сезон
-            return tireschange;
-        }
+        public static ExtentReports extent;
+        public static ExtentTest test;
     }
-}
+        
+    }

@@ -17,25 +17,19 @@ using OpenQA.Selenium.Support.UI;
 
 namespace NUnit.PitStop_
 {
-    [TestFixture]
-    public class TestClass : PodborShinMethods
+    class WebBrowser : DataClass
     {
-        [Test] // Подбор шин на главной странице
-        public void TestMethod()
+        public static void Openbrowser()
         {
-            
+            browser = new ChromeDriver();
+            browser.Manage().Window.Maximize();
+            browser.Navigate().GoToUrl("http://pitstopplus.ru/");
         }
 
-        [SetUp]
-        public void SetUpMetod()
+        public static void Closebrowser()
         {
-            WebBrowser.Openbrowser();
-        }
-
-        [TearDown]
-        public void TearDownMetod()
-        {
-            WebBrowser.Closebrowser();
+            Thread.Sleep(1500);
+            browser.Quit();
         }
     }
 }
