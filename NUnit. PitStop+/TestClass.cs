@@ -21,13 +21,19 @@ namespace NUnit.PitStop_
     public class TestClass : PodborShinMethods
     {
         [Test] // Подбор шин на главной странице
-        public void TestMethod()
+        public void TestMethod1()
         {
-            Reports.StartTestReport("Выбор шин", "Подбор шин на главной странице");
-            TiresFind();
+            Reports.StartTestReport("Тест-кейс_1", "Проверка кнопки 'Найти'", "Проверка работы кнопки поиска шин, Проверка предупреждения об отсутствии списка шин");
+            TiresSearch();
             Reports.EndTestreport();
+        }
 
-
+        [Test]
+        public void TestMethod2()
+        {
+            Reports.StartTestReport("Тест-кейс_2", "Выбор шин по бренду", "Проверка существования списка шин определенного бренда");
+            TiresSearch(BrandName.Cooper);
+            Reports.EndTestreport();
         }
 
         [SetUp]

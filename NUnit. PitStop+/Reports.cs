@@ -16,9 +16,9 @@ namespace NUnit.PitStop_
 {
     public class Reports : DataClass
     {
-        public static void StartTestReport(string title, string description)
+        public static void StartTestReport(string reportfilename, string title, string description)
         {
-            extent = new ExtentReports("D:\\Загрузки\\report.html");
+            extent = new ExtentReports("D:\\Загрузки\\" + reportfilename + ".html");
             test = extent.StartTest(title, description);
         }
 
