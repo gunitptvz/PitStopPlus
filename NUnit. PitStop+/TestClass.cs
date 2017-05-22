@@ -23,7 +23,11 @@ namespace NUnit.PitStop_
         [Test] // Подбор шин на главной странице
         public void TestMethod()
         {
-            
+            Reports.StartTestReport("Выбор шин", "Подбор шин на главной странице");
+            TiresFind();
+            Reports.EndTestreport();
+
+
         }
 
         [SetUp]

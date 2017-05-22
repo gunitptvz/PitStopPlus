@@ -16,14 +16,44 @@ namespace NUnit.PitStop_
 {
     public class PodborShinMethods : DataClass
     {
-        // Поиск шин по бренду
-        public void BrandFind(string brandname)
+        // ПОИСК ШИН
+
+        // Проверка предупреждения об отсутствии параметров поиска
+        public void TiresFind()
+        {
+            string xpathbutton = ".//*[@id='filt_sub']";
+            string xpathsearchresult = ".//*[@id='filter-result']";
+            string expectedresult = "Абракадабра";
+
+            try
+            {
+                element = browser.FindElement(By.XPath(xpathbutton));
+                Reports.AddLogPass("Actual Result1: Кнопка 'Найти' найдена");
+
+                element.Click();
+                Reports.AddLogPass("Actual Result2: Нажитие на кнопку 'Найти' завершилось успешно");
+
+                element = browser.FindElement(By.XPath(xpathsearchresult));
+                Reports.AddLogPass("Actual Result3: " + element.Text);
+
+                if (element.Text.Contains(expectedresult))
+                {
+                    Reports.AddLogPass("Actual Result4: Текст содержит: " + element.Text);
+                }
+                else Reports.AddLogFail("Actual Result: Текст не содержит: " + element.Text);
+            }
+            catch(Exception e)
+            {
+                Reports.AddLogFail("Actual Result: " + e.Message);
+            }
+            
+        }
+
+        // Поиск по бренду
+        public void TiresFind(Enum brandname)
         {
             string xpathselectlist = ".//div[@class='form f1']//div[@class='pseudo-select w313']";
             string xpathselectoption = ".//div[@class='form f1']//div[@class='pseudo-select w313']//div[@class='options']//div";
-
-            Reports.StartTestReport("Выбор бренда шин", "Подбор бренда шин на главной странице");
-            Reports.AddLog("Подбор бренда шин на главной странице");
 
             element = browser.FindElement(By.XPath(xpathselectlist));
             element.Click();
@@ -33,13 +63,18 @@ namespace NUnit.PitStop_
             List<IWebElement> brand = browser.FindElements(By.XPath(xpathselectoption)).ToList();
             foreach(IWebElement element in brand)
             {
-                if(element.Text == brandname)
+                if(element.Text.Contains(brandname.ToString()))
                 {
                     element.Click();
+                    Reports.AddLog("Actual Result: " + element.Text);
                     break;
                 }
             }
-            Reports.AddLog(element.Text);
+        }
+
+        public void TiresFind(string tirewidth)
+        {
+
         }
     }
 }

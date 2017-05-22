@@ -16,7 +16,7 @@ namespace NUnit.PitStop_
 {
 
     // Enum Tires brand
-    enum TiresBrand
+    enum BrandName
     {
         Производитель,
         Achilles,
