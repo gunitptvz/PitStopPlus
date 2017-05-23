@@ -25,6 +25,7 @@ namespace NUnit.PitStop_
         {
             Reports.StartTestReport("Тест-кейс_1", "Проверка кнопки 'Найти'", "Проверка работы кнопки поиска шин, Проверка предупреждения об отсутствии списка шин");
             TiresSearch();
+            Assert.That(element != null, "Элемент не изменился");
             Reports.EndTestreport();
         }
 
