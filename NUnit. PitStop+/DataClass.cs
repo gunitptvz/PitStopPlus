@@ -18,7 +18,6 @@ namespace NUnit.PitStop_
     // Enum Tires brand
     enum BrandName
     {
-        Производитель,
         Achilles,
         BFGoodrich,
         Bridgestone,
@@ -36,6 +35,7 @@ namespace NUnit.PitStop_
         Tigar,
         Yokohama
     }
+
     public class DataClass
     {
         // DATA

@@ -25,24 +25,19 @@ namespace NUnit.PitStop_
             string expectedresult = "Не заданы параметры поиска";
             string xpathbutton = ".//*[@id='filt_sub']";
 
-            try
-            {
-                element = browser.FindElement(By.XPath(xpathbutton));
-                element.Click();
-                Reports.AddLogPass("Actual Result1: Нажатие на кнопку 'Найти' завершилось успешно");
+            element = browser.FindElement(By.XPath(xpathbutton));
+            element.Click();
+            // Reports.AddLogPass("Actual Result1: Нажатие на кнопку 'Найти' завершилось успешно");
 
-                element = browser.FindElement(By.XPath(xpathsearchresult));
-                if (element.Text == expectedresult)
-                {
-                    Reports.AddLogPass("Actual Result2: Текст содержит: " + element.Text);
-                }
-                else Reports.AddLogFail("Actual Result: Текст не содержит: " + element.Text);
-            }
-            catch(Exception e)
+            element = browser.FindElement(By.XPath(xpathsearchresult));
+            if (element.Text == expectedresult)
             {
-                Reports.AddLogFail("Error Message: " + e.Message);
+                Assert.Pass("Текст 'Не заданы параметра поиска' присутствует");
+                // Reports.AddLogPass("Actual Result2: Текст содержит: " + element.Text);
             }
-            
+            else Assert.Fail("Текст 'Не заданы параметра поиска' отсутствует");
+            // Reports.AddLogFail("Actual Result: Текст не содержит: " + element.Text);
+
         }
 
         // Поиск по бренду
@@ -51,46 +46,51 @@ namespace NUnit.PitStop_
             string xpathselectlist = ".//div[@class='form f1']//div[@class='pseudo-select w313']";
             string xpathselectoption = ".//div[@class='form f1']//div[@class='pseudo-select w313']//div[@class='options']//div";
             string xpathbutton = ".//*[@id='filt_sub']";
-            string xpathtireslist = ".//div[@class='tires_catalog_search']//a[@class='tires_catalog_name']";
 
-            try
+            element = browser.FindElement(By.XPath(xpathselectlist));
+            element.Click();
+
+            Wait.ElementIsVisible(xpathselectoption);
+
+            List<IWebElement> brand = browser.FindElements(By.XPath(xpathselectoption)).ToList();
+            foreach (IWebElement element in brand)
             {
-                element = browser.FindElement(By.XPath(xpathselectlist));
-                element.Click();
-
-                Wait.ElementIsVisible(xpathselectoption);
-
-                List<IWebElement> brand = browser.FindElements(By.XPath(xpathselectoption)).ToList();
-                foreach (IWebElement element in brand)
+                if (element.Text.Contains(brandname.ToString()))
                 {
-                    if (element.Text.Contains(brandname.ToString()))
-                    {
-                        element.Click();
-                        break;
-                    }
+                    element.Click();
+                    break;
                 }
+            }
 
+            Wait.ElementIsVisible(xpathbutton);
+
+            element = browser.FindElement(By.XPath(xpathbutton));
+            if (element != null)
+            {
                 Wait.ElementToBeClickable(xpathbutton);
-
-                element = browser.FindElement(By.XPath(xpathbutton));
                 element.Click();
+            }
+            else Assert.Fail("Кнопка не активна");
 
-                List<IWebElement> tireslist = browser.FindElements(By.XPath(xpathtireslist)).ToList();
-                if (tireslist != null)
-                {
-                    Reports.AddLogPass("Actual Result: Список шин данного бренда присутствует");
-                }
-                else Reports.AddLogFail("Actual Result: Список шин не обнаружен");
-            }
-            catch (Exception e)
-            {
-                Reports.AddLogFail("Error Message: " + e.Message);
-            }
-            }
+            SearchResult(".//div[@class='tires_catalog_search']//a[@class='tires_catalog_name']");
         }
 
-        /* public void TiresSearch(Enum brandname, string a)
+        // Поиск по ширине (+ бренду)
+
+        public void TiresSearch(Enum brandname, string width)
         {
 
-        } */
-    }
+        }
+
+        // Проверка результатов поиска
+            public void SearchResult(string xpathtireslist)
+        {
+            List<IWebElement> tireslist = browser.FindElements(By.XPath(xpathtireslist)).ToList();
+            if (tireslist != null)
+            {
+                Assert.Pass("Список шин указанного бренда не пустой");
+            }
+            else Assert.Fail("Список шин указанного бренда пустой");
+        }
+     }
+  }
