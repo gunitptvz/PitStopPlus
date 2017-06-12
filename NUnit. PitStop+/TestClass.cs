@@ -37,6 +37,12 @@ namespace NUnit.PitStop_
             //Reports.EndTestreport();
         }
 
+        [Test]
+        public void TestMethod3()
+        {
+            TiresSearch(0, TireWidth.two_hundred_twentyfive);
+        }
+
         [SetUp]
         public void SetUpMetod()
         {
