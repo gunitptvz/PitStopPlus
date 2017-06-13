@@ -34,6 +34,15 @@ namespace NUnit.PitStop_
             string xpathselectdiameterlist = ".//div[@class='form f1']//fieldset[1]/div[5]";
             string xpathselectdiameteroption = ".//div[@class='form f1']//div[5]//div[@class='options']//div";
 
+            string xpathselectprofilelist = ".//div[@class='form f1']//fieldset[1]/div[3]";
+            string xpathselectprofileoption = ".//div[@class='form f1']//div[3]//div[@class='options']//div";
+
+            string xpathselectseasonlist = ".//div[@class='form f1']//fieldset[1]/div[6]";
+            string xpathselectseasonoption = ".//div[@class='form f1']//div[6]//div[@class='options']//div";
+
+            string xpathselectthornlist = ".//div[@class='pseudo-select']";
+            string xpathselectthornoption = ".//div[@class='pseudo-select']//div[@class='options']//div";
+
 
             // Search parameters isn't exist warning check
             public void TiresSearch()
@@ -115,8 +124,118 @@ namespace NUnit.PitStop_
             }
 
             // Search by TiresProfile
+            public void TiresSearch(TireProfile profile)
+            {
+                WebBrowser.ElementClick(xpathselectprofilelist);
+                Wait.ElementIsVisible(xpathselectprofileoption);
 
-            
+                List<IWebElement> diameterlist = browser.FindElements(By.XPath(xpathselectprofileoption)).ToList();
+                foreach (IWebElement element in diameterlist)
+                {
+                    if (element.Text.Contains(EnumParse.EnumTireProfile(profile)))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementIsVisible(xpathbutton);
+                WebBrowser.ButtonClick(xpathbutton);
+                SearchResult(xpathsearchresultlist);
+            }
+
+            // Search by Season
+            public void TiresSearch(TireSeason season)
+            {
+                WebBrowser.ElementClick(xpathselectseasonlist);
+                Wait.ElementIsVisible(xpathselectseasonoption);
+
+                List<IWebElement> seasonlist = browser.FindElements(By.XPath(xpathselectseasonoption)).ToList();
+
+                foreach (IWebElement element in seasonlist)
+                {
+                    if (element.Text.Contains(season.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementIsVisible(xpathbutton);
+                WebBrowser.ButtonClick(xpathbutton);
+                SearchResult(xpathsearchresultlist);
+            }
+
+            // Search by Winter Season
+            public void TiresSearch(TireSeason wintertires, Studdedtires thorn)
+            {
+                WebBrowser.ElementClick(xpathselectseasonlist);
+                Wait.ElementIsVisible(xpathselectseasonoption);
+
+                List<IWebElement> seasonlist = browser.FindElements(By.XPath(xpathselectseasonoption)).ToList();
+
+                foreach (IWebElement element in seasonlist)
+                {
+                    if (element.Text.Contains(wintertires.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ElementClick(xpathselectthornlist);
+                Wait.ElementIsVisible(xpathselectthornoption);
+
+                List<IWebElement> thornlist = browser.FindElements(By.XPath(xpathselectthornoption)).ToList();
+
+                foreach (IWebElement element in thornlist)
+                {
+                    if (element.Text.Contains(thorn.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementIsVisible(xpathbutton);
+                WebBrowser.ButtonClick(xpathbutton);
+                SearchResult(xpathsearchresultlist);
+            }
+
+            // Search by Brand + Widht
+            public void TiresSearch(BrandName brandname, TireWidth width)
+            {
+                WebBrowser.ElementClick(xpathselectbrandtlist);
+                Wait.ElementIsVisible(xpathselectbrandoption);
+
+                List<IWebElement> brand = browser.FindElements(By.XPath(xpathselectbrandoption)).ToList();
+                foreach (IWebElement element in brand)
+                {
+                    if (element.Text.Contains(brandname.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ElementClick(xpathselectwidthlist);
+                Wait.ElementIsVisible(xpathselectwidthoption);
+
+                List<IWebElement> widthlist = browser.FindElements(By.XPath(xpathselectwidthoption)).ToList();
+                foreach (IWebElement element in widthlist)
+                {
+                    if (element.Text.Contains(EnumParse.EnumTireWidth(width)))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementIsVisible(xpathbutton);
+                WebBrowser.ButtonClick(xpathbutton);
+                SearchResult(xpathsearchresultlist);
+            }
+
 
             // Search result check
             public void SearchResult(string xpathresultlist)

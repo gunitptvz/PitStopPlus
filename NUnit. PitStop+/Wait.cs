@@ -19,7 +19,7 @@ namespace NUnit.PitStop_
         // Задержка времени
         public static void ElementIsVisible(string xpath)
         {
-            WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(15));
+            WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(25));
             IWebElement txt = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xpath)));
         }
 

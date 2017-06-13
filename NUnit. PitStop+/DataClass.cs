@@ -127,6 +127,56 @@ namespace NUnit.PitStop_
             R28,
             R32
         }
+
+        // Enum Tires profile
+        public enum TireProfile
+        {
+            профиль,
+            p0,
+            p9comma5,
+            p9dot50,
+            p10comma5,
+            p11comma5,
+            p12comma5,
+            p25,
+            p30,
+            p35,
+            p40,
+            p45,
+            p50,
+            p55,
+            p60,
+            p65,
+            p70,
+            p75,
+            p80,
+            p85,
+            p100,
+            p560,
+            p580,
+            p610,
+            p650
+        }
+
+        public enum TireSeason
+        {
+            сезон,
+            Летние,
+            Зимние,
+            Всесезонные,
+            Лето,
+            Зима,
+            спорт,
+            грузовые
+        }
+
+        public enum Studdedtires
+        {
+            шипы,
+            Да,
+            Нет,
+            Есть
+        }
     }
         
     }

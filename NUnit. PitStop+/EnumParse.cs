@@ -312,5 +312,113 @@ namespace NUnit.PitStop_
             }
             return "0";
         }
+
+        public static string EnumTireProfile(TireProfile profile)
+        {
+            switch (profile)
+            {
+                case TireProfile.профиль:
+                    {
+                        return "профиль";
+                    }
+                case TireProfile.p0:
+                    {
+                        return "0";
+                    }
+                case TireProfile.p9comma5:
+                    {
+                        return "9,5";
+                    }
+                case TireProfile.p9dot50:
+                    {
+                        return "9.50";
+                    }
+                case TireProfile.p10comma5:
+                    {
+                        return "10,5";
+                    }
+                case TireProfile.p11comma5:
+                    {
+                        return "11,5";
+                    }
+                case TireProfile.p12comma5:
+                    {
+                        return "12,5";
+                    }
+                case TireProfile.p25:
+                    {
+                        return "25";
+                    }
+                case TireProfile.p30:
+                    {
+                        return "30";
+                    }
+                case TireProfile.p35:
+                    {
+                        return "35";
+                    }
+                case TireProfile.p40:
+                    {
+                        return "40";
+                    }
+                case TireProfile.p45:
+                    {
+                        return "45";
+                    }
+                case TireProfile.p50:
+                    {
+                        return "50";
+                    }
+                case TireProfile.p55:
+                    {
+                        return "55";
+                    }
+                case TireProfile.p60:
+                    {
+                        return "60";
+                    }
+                case TireProfile.p65:
+                    {
+                        return "65";
+                    }
+                case TireProfile.p70:
+                    {
+                        return "70";
+                    }
+                case TireProfile.p75:
+                    {
+                        return "75";
+                    }
+                case TireProfile.p80:
+                    {
+                        return "80";
+                    }
+                case TireProfile.p85:
+                    {
+                        return "85";
+                    }
+                case TireProfile.p100:
+                    {
+                        return "100";
+                    }
+                case TireProfile.p560:
+                    {
+                        return "560";
+                    }
+                case TireProfile.p580:
+                    {
+                        return "580";
+                    }
+                case TireProfile.p610:
+                    {
+                        return "610";
+                    }
+                case TireProfile.p650:
+                    {
+                        return "650";
+                    }
+            }
+            return "0";
+        }
     }
 }
