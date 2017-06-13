@@ -18,14 +18,15 @@ using OpenQA.Selenium.Support.UI;
 namespace NUnit.PitStop_
 {
     [TestFixture]
-    public class TestClass : PodborShinMethods
+    public class TestClass : Homepage
     {
+        TiresSelection test1 = new TiresSelection();
+
         [Test] // Подбор шин на главной странице
         public void TestMethod1()
         {
             //Reports.StartTestReport("Тест-кейс_1", "Проверка кнопки 'Найти'", "Проверка работы кнопки поиска шин, Проверка предупреждения об отсутствии списка шин");
-            TiresSearch();
-            Assert.Pass("Тест кейс прошел");
+            test1.TiresSearch();
             //Reports.EndTestreport();
         }
 
@@ -33,14 +34,20 @@ namespace NUnit.PitStop_
         public void TestMethod2()
         {
             //Reports.StartTestReport("Тест-кейс_2", "Выбор шин по бренду", "Проверка существования списка шин определенного бренда");
-            TiresSearch(BrandName.Cooper);
+            test1.TiresSearch(BrandName.Cooper);
             //Reports.EndTestreport();
         }
 
         [Test]
         public void TestMethod3()
         {
-            TiresSearch(0, TireWidth.two_hundred_twentyfive);
+            test1.TiresSearch(TireWidth.w225);
+        }
+
+        [Test]
+        public void TestMethod4()
+        {
+            test1.TiresSearch(TireDiameter.R);
         }
 
         [SetUp]

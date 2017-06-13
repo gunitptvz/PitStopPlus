@@ -31,5 +31,22 @@ namespace NUnit.PitStop_
             Thread.Sleep(1500);
             browser.Quit();
         }
+
+        public static void ButtonClick(string xpath)
+        {
+            element = browser.FindElement(By.XPath(xpath));
+            if (element != null)
+            {
+                Wait.ElementToBeClickable(xpath);
+                element.Click();
+            }
+            else Assert.Fail("Кнопка не активна");
+        }
+
+        public static void ElementClick(string xpath)
+        {
+            element = browser.FindElement(By.XPath(xpath));
+            element.Click();
+        }
     }
 }

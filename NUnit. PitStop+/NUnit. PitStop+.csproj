@@ -57,7 +57,7 @@
   <ItemGroup>
     <Compile Include="DataClass.cs" />
     <Compile Include="EnumParse.cs" />
-    <Compile Include="PodborShinMethods.cs" />
+    <Compile Include="Homepage.cs" />
     <Compile Include="Reports.cs" />
     <Compile Include="TestClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
