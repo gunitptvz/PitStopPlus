@@ -25,7 +25,7 @@ namespace NUnit.PitStop_
 
         public static void ElementToBeClickable(string xpath)
         {
-            WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(15));
+            WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(25));
             IWebElement txt = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(xpath)));
         }
     }
