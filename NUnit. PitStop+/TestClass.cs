@@ -40,7 +40,7 @@ namespace NUnit.PitStop_
         public void TestMethod2()
         {
             //Reports.StartTestReport("Тест-кейс_2", "Выбор шин по бренду", "Проверка существования списка шин определенного бренда");
-            test1.TiresSearch(BrandName.Cooper, TireSeason.Лето);
+            test1.TiresSearch(BrandName.Michelin, TireWidth.w215, TireProfile.p65, TireDiameter.R15C, TireSeason.Лето);
             //Reports.EndTestreport();
         }
 
