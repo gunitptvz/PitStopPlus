@@ -18,7 +18,7 @@ namespace NUnit.PitStop_
     {
         public class TiresSelection
         {
-            // Data
+            // Data1
             string xpathbutton = ".//*[@id='filt_sub']";
             string xpathsearchresultlist = ".//div[@class='tires_catalog_search']//a[@class='tires_catalog_name']";
 
@@ -43,8 +43,68 @@ namespace NUnit.PitStop_
             string xpathselectthornlist = ".//div[@class='pseudo-select']";
             string xpathselectthornoption = ".//div[@class='pseudo-select']//div[@class='options']//div";
 
+            /* Simple Search Methods */
 
-            // Search parameters isn't exist warning check
+            // Search by 1 parameter
+            public void TiresSearch(string param1)
+            {
+                Wait.ElementToBeClickable(xpathselectbrandlist);
+                WebBrowser.ElementClick(xpathselectbrandlist);
+                Wait.ElementIsVisible(xpathselectbrandoption);
+
+                List<IWebElement> list1 = browser.FindElements(By.XPath(xpathselectbrandoption)).ToList();
+                foreach (IWebElement element in list1)
+                {
+                    if (element.Text.Contains(param1.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementToBeClickable(xpathbutton);
+                WebBrowser.ButtonClick(xpathbutton);
+            }
+
+            // Search by 2 parameters
+
+            // Search by 3 parameters
+
+            // Search by 4 parameters
+
+            // Search by 5 parameters
+
+            // Search by 6 parameters
+
+
+            // Data2
+           /* string xpathbutton = ".//*[@id='filt_sub']";
+            string xpathsearchresultlist = ".//div[@class='tires_catalog_search']//a[@class='tires_catalog_name']";
+
+            string xpathsearchresult = ".//*[@id='filter-result']";
+            string expectedresult = "Не заданы параметры поиска";
+
+            string xpathselectbrandlist = ".//div[@class='form f1']//div[@class='pseudo-select w313']";
+            string xpathselectbrandoption = ".//div[@class='form f1']//div[@class='pseudo-select w313']//div[@class='options']//div";
+
+            string xpathselectwidthlist = ".//div[@class='form f1']//fieldset[1]/div[2]";
+            string xpathselectwidthoption = ".//div[@class='form f1']//div[2]//div[@class='options']//div";
+
+            string xpathselectdiameterlist = ".//div[@class='form f1']//fieldset[1]/div[5]";
+            string xpathselectdiameteroption = ".//div[@class='form f1']//div[5]//div[@class='options']//div";
+
+            string xpathselectprofilelist = ".//div[@class='form f1']//fieldset[1]/div[3]";
+            string xpathselectprofileoption = ".//div[@class='form f1']//div[3]//div[@class='options']//div";
+
+            string xpathselectseasonlist = ".//div[@class='form f1']//fieldset[1]/div[6]";
+            string xpathselectseasonoption = ".//div[@class='form f1']//div[6]//div[@class='options']//div";
+
+            string xpathselectthornlist = ".//div[@class='pseudo-select']";
+            string xpathselectthornoption = ".//div[@class='pseudo-select']//div[@class='options']//div"; */
+
+            /* Difficult Search Methods */
+
+            // Empty search exist warning
             public void TiresSearch()
             {
                 Wait.ElementToBeClickable(xpathbutton);
@@ -2250,6 +2310,7 @@ namespace NUnit.PitStop_
                 }
                 else Assert.Fail("Список шин указанного бренда пустой");
             }
+
         }
 
         public class WheelsSelection

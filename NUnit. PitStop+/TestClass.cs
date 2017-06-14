@@ -25,8 +25,14 @@ namespace NUnit.PitStop_
         [Test] // Подбор шин на главной странице
         public void TestMethod1()
         {
-            //Reports.StartTestReport("Тест-кейс_1", "Проверка кнопки 'Найти'", "Проверка работы кнопки поиска шин, Проверка предупреждения об отсутствии списка шин");
+            // Empty search exist warning "Не заданы параметры поиска" 
             test1.TiresSearch();
+        }
+
+        [Test]
+        public void TestMethod2()
+        {
+            //Reports.StartTestReport("Тест-кейс_1", "Проверка кнопки 'Найти'", "Проверка работы кнопки поиска шин, Проверка предупреждения об отсутствии списка шин");
             test1.TiresSearch(BrandName.Cooper);
             test1.TiresSearch(TireWidth.w225);
             test1.TiresSearch(TireDiameter.R);
@@ -37,7 +43,7 @@ namespace NUnit.PitStop_
         }
 
         [Test]
-        public void TestMethod2()
+        public void TestMethod3()
         {
             //Reports.StartTestReport("Тест-кейс_2", "Выбор шин по бренду", "Проверка существования списка шин определенного бренда");
             test1.TiresSearch(BrandName.Michelin, TireWidth.w215, TireProfile.p65, TireDiameter.R15C, TireSeason.Лето);
