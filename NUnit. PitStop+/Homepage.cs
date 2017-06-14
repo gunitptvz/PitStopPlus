@@ -43,10 +43,40 @@ namespace NUnit.PitStop_
             string xpathselectthornlist = ".//div[@class='pseudo-select']";
             string xpathselectthornoption = ".//div[@class='pseudo-select']//div[@class='options']//div";
 
+            // Xpath array
+            string[] xpathlist = new string[6];
+            // string[] xpathoption = new string[6];
+
+            // Indexator
+            public TiresSelection()
+            {
+                xpathlist[0] = ".//div[@class='form f1']//div[@class='pseudo-select w313']";
+                xpathlist[1] = ".//div[@class='form f1']//fieldset[1]/div[2]";
+                xpathlist[2] = ".//div[@class='form f1']//fieldset[1]/div[5]";
+                xpathlist[3] = ".//div[@class='form f1']//fieldset[1]/div[3]";
+                xpathlist[4] = ".//div[@class='form f1']//fieldset[1]/div[6]";
+                xpathlist[5] = ".//div[@class='pseudo-select']";
+            }
+
+            public string this[string index]
+            {
+                get
+                {
+                    for(int i = 0; i < xpathlist.Length; i++)
+                    {
+                        if(xpathlist[i] == index)
+                        {
+                            return xpathlist[i];
+                        }
+                    }
+                    return "Элемент отсутствует";
+                }
+            }
+
             /* Simple Search Methods */
 
             // Search by 1 parameter
-            public void TiresSearch(string param1)
+            public void TiresSearch(string param1, string []xpathlist, string xpathoption)
             {
                 Wait.ElementToBeClickable(xpathselectbrandlist);
                 WebBrowser.ElementClick(xpathselectbrandlist);
