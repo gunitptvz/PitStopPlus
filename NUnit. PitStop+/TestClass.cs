@@ -22,6 +22,20 @@ namespace NUnit.PitStop_
     {
         TiresSelection test1 = new TiresSelection();
 
+        string xpathbrand = ".//div[@class='form f1']//div[@class='pseudo-select w313']";
+        string xpathwidth = ".//div[@class='form f1']//fieldset[1]/div[2]";
+        string xpathprofile = ".//div[@class='form f1']//fieldset[1]/div[3]";
+        string xpathdiameter = ".//div[@class='form f1']//fieldset[1]/div[5]";
+        string xpathseason = ".//div[@class='form f1']//fieldset[1]/div[6]";
+        string xpaththorn = ".//div[@class='pseudo-select']";
+
+        string xpathbrandoption = ".//div[@class='form f1']//div[@class='pseudo-select w313']//div[@class='options']//div";
+        string xpathwidthoption = ".//div[@class='form f1']//div[2]//div[@class='options']//div";
+        string xpathprofileoption = ".//div[@class='form f1']//div[3]//div[@class='options']//div";
+        string xpathdiameteroption = ".//div[@class='form f1']//div[5]//div[@class='options']//div";
+        string xpathseasonoption = ".//div[@class='form f1']//div[6]//div[@class='options']//div";
+        string xpaththornoption = ".//div[@class='pseudo-select']//div[@class='options']//div";
+
         [Test] // Подбор шин на главной странице
         public void TestMethod1()
         {
@@ -32,21 +46,29 @@ namespace NUnit.PitStop_
         [Test]
         public void TestMethod2()
         {
-            //Reports.StartTestReport("Тест-кейс_1", "Проверка кнопки 'Найти'", "Проверка работы кнопки поиска шин, Проверка предупреждения об отсутствии списка шин");
-            test1.TiresSearch(BrandName.Cooper);
-            test1.TiresSearch(TireWidth.w225);
-            test1.TiresSearch(TireDiameter.R);
-            test1.TiresSearch(TireProfile.p12comma5);
-            test1.TiresSearch(TireSeason.Летние);
-            test1.TiresSearch(TireSeason.Зимние, Studdedtires.шипы);
-            //Reports.EndTestreport();
+            // Data:
+            // xpathlist = xpathbrand || xpathwidth || xpathprofile || etc.
+            // xpathoption = xpathbrandoption || xpathwidthoption || xpathprofileoption || etc.
+            // test1.TiresSearch("Dunlop", xpathbrand, xpathbrandoption);
+            // test1.TiresSearch("Cooper", "285", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption);
+            // test1.TiresSearch("Cooper", "235", "65", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption);
+
         }
 
         [Test]
-        public void TestMethod3()
+        public void TestMethod15()
         {
+            //Reports.StartTestReport("Тест-кейс_1", "Проверка кнопки 'Найти'", "Проверка работы кнопки поиска шин, Проверка предупреждения об отсутствии списка шин");
+            //test1.TiresSearch(BrandName.Cooper);
+            //test1.TiresSearch(TireWidth.w225);
+            //test1.TiresSearch(TireDiameter.R);
+            //test1.TiresSearch(TireProfile.p12comma5);
+            //test1.TiresSearch(TireSeason.Летние);
+            //test1.TiresSearch(TireSeason.Зимние, Studdedtires.шипы);
+            //Reports.EndTestreport();
+
             //Reports.StartTestReport("Тест-кейс_2", "Выбор шин по бренду", "Проверка существования списка шин определенного бренда");
-            test1.TiresSearch(BrandName.Michelin, TireWidth.w215, TireProfile.p65, TireDiameter.R15C, TireSeason.Лето);
+            //test1.TiresSearch(BrandName.Michelin, TireWidth.w215, TireProfile.p65, TireDiameter.R15C, TireSeason.Лето);
             //Reports.EndTestreport();
         }
 
