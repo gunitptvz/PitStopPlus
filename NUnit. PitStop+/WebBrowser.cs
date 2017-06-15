@@ -28,7 +28,7 @@ namespace NUnit.PitStop_
 
         public static void Closebrowser()
         {
-            Thread.Sleep(1500);
+            Thread.Sleep(3000);
             browser.Quit();
         }
 

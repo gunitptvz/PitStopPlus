@@ -49,10 +49,14 @@ namespace NUnit.PitStop_
             // Data:
             // xpathlist = xpathbrand || xpathwidth || xpathprofile || etc.
             // xpathoption = xpathbrandoption || xpathwidthoption || xpathprofileoption || etc.
-            // test1.TiresSearch("Dunlop", xpathbrand, xpathbrandoption);
-            // test1.TiresSearch("Cooper", "285", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption);
-            // test1.TiresSearch("Cooper", "235", "65", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption);
-
+            test1.TiresSearch("Dunlop", xpathbrand, xpathbrandoption);
+            test1.TiresSearch("Cooper", "285", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption);
+            test1.TiresSearch("Cooper", "235", "65", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption);
+            test1.TiresSearch("Cooper", "235", "65", "R16", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption, xpathdiameter, xpathdiameteroption);
+            test1.TiresSearch("Cooper", "235", "65", "R16", "Зима", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption, xpathdiameter,
+                              xpathdiameteroption, xpathseason, xpathseasonoption);
+            test1.TiresSearch("Cooper", "235", "65", "R16", "Зимние", "Нет", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption, xpathdiameter,
+                              xpathdiameteroption, xpathseason, xpathseasonoption, xpaththorn, xpaththornoption);
         }
 
         [Test]

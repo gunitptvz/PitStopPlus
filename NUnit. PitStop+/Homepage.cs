@@ -186,7 +186,7 @@ namespace NUnit.PitStop_
                 WebBrowser.ElementClick(xpathlist4);
                 Wait.ElementIsVisible(xpathoption4);
 
-                List<IWebElement> list4 = browser.FindElements(By.XPath(xpathoption3)).ToList();
+                List<IWebElement> list4 = browser.FindElements(By.XPath(xpathoption4)).ToList();
                 foreach (IWebElement element in list4)
                 {
                     if (element.Text.Contains(param4.ToString()))
@@ -202,8 +202,178 @@ namespace NUnit.PitStop_
             }
 
             // Search by 5 parameters
+            public void TiresSearch(string param1, string param2, string param3, string param4, string param5, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2,
+            string xpathlist3, string xpathoption3, string xpathlist4, string xpathoption4, string xpathlist5, string xpathoption5)
+            {
+
+                Wait.ElementToBeClickable(xpathlist1);
+                WebBrowser.ElementClick(xpathlist1);
+                Wait.ElementIsVisible(xpathoption1);
+
+                List<IWebElement> list = browser.FindElements(By.XPath(xpathoption1)).ToList();
+                foreach (IWebElement element in list)
+                {
+                    if (element.Text.Contains(param1.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementToBeClickable(xpathlist2);
+                WebBrowser.ElementClick(xpathlist2);
+                Wait.ElementIsVisible(xpathoption2);
+
+                List<IWebElement> list1 = browser.FindElements(By.XPath(xpathoption2)).ToList();
+                foreach (IWebElement element in list1)
+                {
+                    if (element.Text.Contains(param2.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementToBeClickable(xpathlist3);
+                WebBrowser.ElementClick(xpathlist3);
+                Wait.ElementIsVisible(xpathoption3);
+
+                List<IWebElement> list3 = browser.FindElements(By.XPath(xpathoption3)).ToList();
+                foreach (IWebElement element in list3)
+                {
+                    if (element.Text.Contains(param3.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementToBeClickable(xpathlist4);
+                WebBrowser.ElementClick(xpathlist4);
+                Wait.ElementIsVisible(xpathoption4);
+
+                List<IWebElement> list4 = browser.FindElements(By.XPath(xpathoption4)).ToList();
+                foreach (IWebElement element in list4)
+                {
+                    if (element.Text.Contains(param4.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementToBeClickable(xpathlist5);
+                WebBrowser.ElementClick(xpathlist5);
+                Wait.ElementIsVisible(xpathoption5);
+
+                List<IWebElement> list5 = browser.FindElements(By.XPath(xpathoption5)).ToList();
+                foreach (IWebElement element in list5)
+                {
+                    if (element.Text.Contains(param5.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementToBeClickable(xpathbutton);
+                WebBrowser.ButtonClick(xpathbutton);
+                SearchResult(xpathsearchresultlist, param1, param2, param3, param4, param5);
+            }
 
             // Search by 6 parameters
+            public void TiresSearch(string param1, string param2, string param3, string param4, string param5, string param6, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2,
+            string xpathlist3, string xpathoption3, string xpathlist4, string xpathoption4, string xpathlist5, string xpathoption5, string xpathlist6, string xpathoption6)
+            {
+
+                Wait.ElementToBeClickable(xpathlist1);
+                WebBrowser.ElementClick(xpathlist1);
+                Wait.ElementIsVisible(xpathoption1);
+
+                List<IWebElement> list = browser.FindElements(By.XPath(xpathoption1)).ToList();
+                foreach (IWebElement element in list)
+                {
+                    if (element.Text.Contains(param1.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementToBeClickable(xpathlist2);
+                WebBrowser.ElementClick(xpathlist2);
+                Wait.ElementIsVisible(xpathoption2);
+
+                List<IWebElement> list1 = browser.FindElements(By.XPath(xpathoption2)).ToList();
+                foreach (IWebElement element in list1)
+                {
+                    if (element.Text.Contains(param2.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementToBeClickable(xpathlist3);
+                WebBrowser.ElementClick(xpathlist3);
+                Wait.ElementIsVisible(xpathoption3);
+
+                List<IWebElement> list3 = browser.FindElements(By.XPath(xpathoption3)).ToList();
+                foreach (IWebElement element in list3)
+                {
+                    if (element.Text.Contains(param3.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementToBeClickable(xpathlist4);
+                WebBrowser.ElementClick(xpathlist4);
+                Wait.ElementIsVisible(xpathoption4);
+
+                List<IWebElement> list4 = browser.FindElements(By.XPath(xpathoption4)).ToList();
+                foreach (IWebElement element in list4)
+                {
+                    if (element.Text.Contains(param4.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementToBeClickable(xpathlist5);
+                WebBrowser.ElementClick(xpathlist5);
+                Wait.ElementIsVisible(xpathoption5);
+
+                List<IWebElement> list5 = browser.FindElements(By.XPath(xpathoption5)).ToList();
+                foreach (IWebElement element in list5)
+                {
+                    if (element.Text.Contains(param5.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementToBeClickable(xpathlist6);
+                WebBrowser.ElementClick(xpathlist6);
+                Wait.ElementIsVisible(xpathoption6);
+
+                List<IWebElement> list6 = browser.FindElements(By.XPath(xpathoption6)).ToList();
+                foreach (IWebElement element in list6)
+                {
+                    if (element.Text.Contains(param6.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementToBeClickable(xpathbutton);
+                WebBrowser.ButtonClick(xpathbutton);
+                SearchResult(xpathsearchresultlist, param1, param2, param3, param4, param5, param6);
+            }
 
 
             //// Data2
@@ -2566,11 +2736,7 @@ namespace NUnit.PitStop_
                         }
                         else Assert.Fail("Список не содержит заданных параметров");
                     }
-                    else
-                    {
-                        Assert.Pass("Список пустой");
-                        break;
-                    }
+                    else Assert.Pass("Список пустой");
                 }
             }
         }
