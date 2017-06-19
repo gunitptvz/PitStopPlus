@@ -21,6 +21,7 @@ namespace NUnit.PitStop_
     public class TestClass : Homepage
     {
         TiresSelection test1 = new TiresSelection();
+        WheelsSelection test2 = new WheelsSelection();
 
         // Tires
         string xpathbrand = ".//div[@class='form f1']//fieldset[1]/div[1]";
@@ -61,15 +62,12 @@ namespace NUnit.PitStop_
         {
             // Empty search exist warning "Не заданы параметры поиска" 
             test1.TiresSearch();
-        }
-
-        [Test]
-        public void TestMethod2()
-        {
             // Data:
             // xpathlist = xpathbrand || xpathwidth || xpathprofile || etc.
             // xpathoption = xpathbrandoption || xpathwidthoption || xpathprofileoption || etc.
             test1.TiresSearch("Dunlop", xpathbrand, xpathbrandoption);
+            test1.SearchResult();
+            test1.SearchResult("Dunlop");
             test1.TiresSearch("Cooper", "285", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption);
             test1.TiresSearch("Cooper", "235", "65", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption);
             test1.TiresSearch("Cooper", "235", "65", "R16", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption, xpathdiameter, xpathdiameteroption);
@@ -77,6 +75,12 @@ namespace NUnit.PitStop_
                               xpathdiameteroption, xpathseason, xpathseasonoption);
             test1.TiresSearch("Cooper", "235", "65", "R16", "Зимние", "Нет", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption, xpathdiameter,
                               xpathdiameteroption, xpathseason, xpathseasonoption, xpaththorn, xpaththornoption);
+        }
+
+        [Test]
+        public void TestMethod2()
+        {
+            test2.WheelSearch();
         }
 
         [Test]
