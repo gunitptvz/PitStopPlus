@@ -22,19 +22,39 @@ namespace NUnit.PitStop_
     {
         TiresSelection test1 = new TiresSelection();
 
-        string xpathbrand = ".//div[@class='form f1']//div[@class='pseudo-select w313']";
+        // Tires
+        string xpathbrand = ".//div[@class='form f1']//fieldset[1]/div[1]";
         string xpathwidth = ".//div[@class='form f1']//fieldset[1]/div[2]";
         string xpathprofile = ".//div[@class='form f1']//fieldset[1]/div[3]";
         string xpathdiameter = ".//div[@class='form f1']//fieldset[1]/div[5]";
         string xpathseason = ".//div[@class='form f1']//fieldset[1]/div[6]";
         string xpaththorn = ".//div[@class='pseudo-select']";
 
-        string xpathbrandoption = ".//div[@class='form f1']//div[@class='pseudo-select w313']//div[@class='options']//div";
-        string xpathwidthoption = ".//div[@class='form f1']//div[2]//div[@class='options']//div";
-        string xpathprofileoption = ".//div[@class='form f1']//div[3]//div[@class='options']//div";
-        string xpathdiameteroption = ".//div[@class='form f1']//div[5]//div[@class='options']//div";
-        string xpathseasonoption = ".//div[@class='form f1']//div[6]//div[@class='options']//div";
-        string xpaththornoption = ".//div[@class='pseudo-select']//div[@class='options']//div";
+        string xpathbrandoption = ".//div[@class='form f1']//div[1]//div[2]//div";
+        string xpathwidthoption = ".//div[@class='form f1']//div[2]//div[2]//div";
+        string xpathprofileoption = ".//div[@class='form f1']//div[3]//div[2]//div";
+        string xpathdiameteroption = ".//div[@class='form f1']//div[5]//div[2]//div";
+        string xpathseasonoption = ".//div[@class='form f1']//div[6]//div[2]//div";
+        string xpaththornoption = ".//div[@class='pseudo-select']//div[2]//div";
+
+        // Wheels
+        string xpathwheelbrand = ".//div[@class='form f3']//fieldset[1]/div[1]";
+        string xpathwheelwidth = ".//div[@class='form f3']//fieldset[1]/div[2]";
+        string xpathwheeldiameter = ".//div[@class='form f3']//fieldset[1]/div[3]";
+        string xpathfixture = ".//div[@class='form f3']//fieldset[1]/div[5]";
+        string xpathradiusET = ".//div[@class='form f3']//fieldset[1]/div[6]";
+        string xpathwheeldiameterPCD = ".//div[@class='form f3']//fieldset[1]/div[8]";
+        string xpathweeldiameterCH = ".//div[@class='form f3']//fieldset[1]/div[9]";
+
+        string xpathwheelbrandoption = ".//div[@class='form f3']//div[1]//div[2]//div";
+        string xpathwheelwidthoption = ".//div[@class='form f3']//div[2]//div[2]//div";
+        string xpathwheeldiameteroption = ".//div[@class='form f3']//div[3]//div[2]//div";
+        string xpathfixtureoption = ".//div[@class='form f3']//div[5]//div[2]//div";
+        string xpathradiusEToption = ".//div[@class='form f3']//div[6]//div[2]//div";
+        string xpathwheeldiameterPCDoption = ".//div[@class='form f3']//div[8]//div[2]//div";
+        string xpathweeldiameterCHoption = ".//div[@class='form f3']//div[9]//div[2]//div";
+
+        // Car
 
         [Test] // Подбор шин на главной странице
         public void TestMethod1()
