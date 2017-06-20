@@ -19,13 +19,13 @@ namespace NUnit.PitStop_
         // Задержка времени
         public static void ElementIsVisible(string xpath)
         {
-            WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(25));
+            WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(40));
             IWebElement txt = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xpath)));
         }
 
         public static void ElementToBeClickable(string xpath)
         {
-            WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(25));
+            WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(40));
             IWebElement txt = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(xpath)));
         }
     }

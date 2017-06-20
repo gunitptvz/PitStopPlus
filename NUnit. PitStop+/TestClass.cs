@@ -60,7 +60,7 @@ namespace NUnit.PitStop_
         [Test] // Подбор шин на главной странице
         public void TestMethod1()
         {
-            // Empty search exist warning "Не заданы параметры поиска" 
+            // Empty tire search exist warning "Не заданы параметры поиска" 
             test1.TiresSearch();
             // Data:
             // xpathlist = xpathbrand || xpathwidth || xpathprofile || etc.
@@ -80,7 +80,23 @@ namespace NUnit.PitStop_
         [Test]
         public void TestMethod2()
         {
-            test2.WheelSearch();
+            // Empty wheel search exist warning "Не заданы параметры поиска"
+            //test2.WheelSearch();
+            // Data:
+            // xpathlist = xpathwheelbrand || xpathwheelwidth || xpathwheelprofile || etc.
+            // xpathoption = xpathwheelbrandoption || xpathwheelwidthoption || xpathwheelprofileoption || etc.
+            //test2.WheelSearch("Catwild", xpathwheelbrand, xpathwheelbrandoption);
+            //test2.WheelSearch("Catwild", "6", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption);
+            //test2.WheelSearch("Catwild", "6", "15", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption, xpathwheeldiameter, xpathwheeldiameteroption);
+            /*test2.WheelSearch("Catwild", "6", "15", "5", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption, xpathwheeldiameter, xpathwheeldiameteroption,
+                              xpathfixture, xpathfixtureoption);*/
+            /*test2.WheelSearch("Catwild", "6", "15", "5", "39", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption, xpathwheeldiameter, xpathwheeldiameteroption,
+                              xpathfixture, xpathfixtureoption, xpathradiusET, xpathradiusEToption);*/
+            /*test2.WheelSearch("Catwild", "6", "15", "5", "39", "114,3", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption, xpathwheeldiameter, xpathwheeldiameteroption,
+                              xpathfixture, xpathfixtureoption, xpathradiusET, xpathradiusEToption, xpathwheeldiameterPCD, xpathwheeldiameterPCDoption);*/
+            test2.WheelSearch("Catwild", "6", "15", "5", "39", "114,3", "60,1", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption, xpathwheeldiameter, xpathwheeldiameteroption,
+                              xpathfixture, xpathfixtureoption, xpathradiusET, xpathradiusEToption, xpathwheeldiameterPCD, xpathwheeldiameterPCDoption, xpathweeldiameterCH, xpathweeldiameterCHoption);
+
         }
 
         [Test]

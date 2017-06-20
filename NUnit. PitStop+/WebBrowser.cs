@@ -28,12 +28,13 @@ namespace NUnit.PitStop_
 
         public static void Closebrowser()
         {
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
             browser.Quit();
         }
 
         public static void ButtonClick(string xpath)
         {
+            Wait.ElementIsVisible(xpath);
             element = browser.FindElement(By.XPath(xpath));
             if (element != null)
             {
@@ -45,7 +46,9 @@ namespace NUnit.PitStop_
 
         public static void ElementClick(string xpath)
         {
+            Wait.ElementIsVisible(xpath);
             element = browser.FindElement(By.XPath(xpath));
+            Wait.ElementToBeClickable(xpath);
             element.Click();
         }
     }

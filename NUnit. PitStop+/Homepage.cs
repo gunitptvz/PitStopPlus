@@ -20,9 +20,10 @@ namespace NUnit.PitStop_
         string xpathsearchresult = ".//*[@id='filter-result']";
         string expectedresult = "Не заданы параметры поиска";
 
-        string xpathbutton = ".//*[@id='filt_sub']";
+        string xpathtirebutton = ".//*[@id='filt_sub']";
+        string xpathwheelbutton = ".//div[@class='form f3']//button[1]";
         string xpathresultlist = ".//div[@class='tires_catalog_search']//a[@class='tires_catalog_name']";
-        string xpathwheelselect = ".//div[@class='tab tab_2 selected expanded']";
+        string xpathwheelselect = ".//p[@class='filter_h pd_bord']";
 
         // Result list is(not) empty
         public void SearchResult()
@@ -191,8 +192,7 @@ namespace NUnit.PitStop_
             // Empty search result warning & buttonclick verification
             public void TiresSearch()
             {
-                Wait.ElementToBeClickable(xpathbutton);
-                WebBrowser.ButtonClick(xpathbutton);
+                WebBrowser.ButtonClick(xpathtirebutton);
                 // Reports.AddLogPass("Actual Result1: Нажатие на кнопку 'Найти' завершилось успешно");
 
                 Wait.ElementIsVisible(xpathsearchresult);
@@ -209,8 +209,6 @@ namespace NUnit.PitStop_
             // Search by 1 parameter
             public void TiresSearch(string param1, string xpathlist1, string xpathoption1)
             {
-
-                Wait.ElementToBeClickable(xpathlist1);
                 WebBrowser.ElementClick(xpathlist1);
                 Wait.ElementIsVisible(xpathoption1);
 
@@ -224,16 +222,13 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathbutton);
-                WebBrowser.ButtonClick(xpathbutton);
+                WebBrowser.ButtonClick(xpathtirebutton);
                 SearchResult(param1);
             }
 
             // Search by 2 parameters
             public void TiresSearch(string param1, string param2, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2)
             {
-
-                Wait.ElementToBeClickable(xpathlist1);
                 WebBrowser.ElementClick(xpathlist1);
                 Wait.ElementIsVisible(xpathoption1);
 
@@ -247,7 +242,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist2);
                 WebBrowser.ElementClick(xpathlist2);
                 Wait.ElementIsVisible(xpathoption2);
 
@@ -261,16 +255,13 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathbutton);
-                WebBrowser.ButtonClick(xpathbutton);
+                WebBrowser.ButtonClick(xpathtirebutton);
                 SearchResult(param1, param2);
             }
 
             // Search by 3 parameters
             public void TiresSearch(string param1, string param2, string param3, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2, string xpathlist3, string xpathoption3)
             {
-
-                Wait.ElementToBeClickable(xpathlist1);
                 WebBrowser.ElementClick(xpathlist1);
                 Wait.ElementIsVisible(xpathoption1);
 
@@ -284,7 +275,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist2);
                 WebBrowser.ElementClick(xpathlist2);
                 Wait.ElementIsVisible(xpathoption2);
 
@@ -298,7 +288,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist3);
                 WebBrowser.ElementClick(xpathlist3);
                 Wait.ElementIsVisible(xpathoption3);
 
@@ -312,8 +301,7 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathbutton);
-                WebBrowser.ButtonClick(xpathbutton);
+                WebBrowser.ButtonClick(xpathtirebutton);
                 SearchResult(param1, param2, param3);
             }
 
@@ -321,8 +309,6 @@ namespace NUnit.PitStop_
             public void TiresSearch(string param1, string param2, string param3, string param4, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2,
             string xpathlist3, string xpathoption3, string xpathlist4, string xpathoption4)
             {
-
-                Wait.ElementToBeClickable(xpathlist1);
                 WebBrowser.ElementClick(xpathlist1);
                 Wait.ElementIsVisible(xpathoption1);
 
@@ -336,7 +322,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist2);
                 WebBrowser.ElementClick(xpathlist2);
                 Wait.ElementIsVisible(xpathoption2);
 
@@ -350,7 +335,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist3);
                 WebBrowser.ElementClick(xpathlist3);
                 Wait.ElementIsVisible(xpathoption3);
 
@@ -364,7 +348,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist4);
                 WebBrowser.ElementClick(xpathlist4);
                 Wait.ElementIsVisible(xpathoption4);
 
@@ -378,8 +361,7 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathbutton);
-                WebBrowser.ButtonClick(xpathbutton);
+                WebBrowser.ButtonClick(xpathtirebutton);
                 SearchResult(param1, param2, param3, param4);
             }
 
@@ -387,8 +369,6 @@ namespace NUnit.PitStop_
             public void TiresSearch(string param1, string param2, string param3, string param4, string param5, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2,
             string xpathlist3, string xpathoption3, string xpathlist4, string xpathoption4, string xpathlist5, string xpathoption5)
             {
-
-                Wait.ElementToBeClickable(xpathlist1);
                 WebBrowser.ElementClick(xpathlist1);
                 Wait.ElementIsVisible(xpathoption1);
 
@@ -402,7 +382,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist2);
                 WebBrowser.ElementClick(xpathlist2);
                 Wait.ElementIsVisible(xpathoption2);
 
@@ -416,7 +395,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist3);
                 WebBrowser.ElementClick(xpathlist3);
                 Wait.ElementIsVisible(xpathoption3);
 
@@ -430,7 +408,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist4);
                 WebBrowser.ElementClick(xpathlist4);
                 Wait.ElementIsVisible(xpathoption4);
 
@@ -444,7 +421,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist5);
                 WebBrowser.ElementClick(xpathlist5);
                 Wait.ElementIsVisible(xpathoption5);
 
@@ -458,8 +434,7 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathbutton);
-                WebBrowser.ButtonClick(xpathbutton);
+                WebBrowser.ButtonClick(xpathtirebutton);
                 SearchResult(param1, param2, param3, param4, param5);
             }
 
@@ -467,8 +442,6 @@ namespace NUnit.PitStop_
             public void TiresSearch(string param1, string param2, string param3, string param4, string param5, string param6, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2,
             string xpathlist3, string xpathoption3, string xpathlist4, string xpathoption4, string xpathlist5, string xpathoption5, string xpathlist6, string xpathoption6)
             {
-
-                Wait.ElementToBeClickable(xpathlist1);
                 WebBrowser.ElementClick(xpathlist1);
                 Wait.ElementIsVisible(xpathoption1);
 
@@ -482,7 +455,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist2);
                 WebBrowser.ElementClick(xpathlist2);
                 Wait.ElementIsVisible(xpathoption2);
 
@@ -496,7 +468,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist3);
                 WebBrowser.ElementClick(xpathlist3);
                 Wait.ElementIsVisible(xpathoption3);
 
@@ -510,7 +481,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist4);
                 WebBrowser.ElementClick(xpathlist4);
                 Wait.ElementIsVisible(xpathoption4);
 
@@ -524,7 +494,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist5);
                 WebBrowser.ElementClick(xpathlist5);
                 Wait.ElementIsVisible(xpathoption5);
 
@@ -538,7 +507,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist6);
                 WebBrowser.ElementClick(xpathlist6);
                 Wait.ElementIsVisible(xpathoption6);
 
@@ -552,8 +520,7 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathbutton);
-                WebBrowser.ButtonClick(xpathbutton);
+                WebBrowser.ButtonClick(xpathtirebutton);
                 SearchResult(param1, param2, param3, param4, param5, param6);
             }
 
@@ -2766,11 +2733,9 @@ namespace NUnit.PitStop_
             // Empty search result warning & buttonclick verification
             public void WheelSearch()
             {
-                Wait.ElementToBeClickable(xpathwheelselect);
                 WebBrowser.ElementClick(xpathwheelselect);
 
-                Wait.ElementToBeClickable(xpathbutton);
-                WebBrowser.ButtonClick(xpathbutton);
+                WebBrowser.ButtonClick(xpathwheelbutton);
 
                 Wait.ElementIsVisible(xpathsearchresult);
                 element = browser.FindElement(By.XPath(xpathsearchresult));
@@ -2784,8 +2749,7 @@ namespace NUnit.PitStop_
             // Search by 1 parameter
             public void WheelSearch(string param1, string xpathlist1, string xpathoption1)
             {
-
-                Wait.ElementToBeClickable(xpathlist1);
+                WebBrowser.ElementClick(xpathwheelselect);
                 WebBrowser.ElementClick(xpathlist1);
                 Wait.ElementIsVisible(xpathoption1);
 
@@ -2799,16 +2763,14 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathbutton);
-                WebBrowser.ButtonClick(xpathbutton);
-                SearchResult(xpathresultlist, param1);
+                WebBrowser.ButtonClick(xpathwheelbutton);
+                SearchResult(param1);
             }
 
             // Search by 2 parameters
             public void WheelSearch(string param1, string param2, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2)
             {
-
-                Wait.ElementToBeClickable(xpathlist1);
+                WebBrowser.ElementClick(xpathwheelselect);
                 WebBrowser.ElementClick(xpathlist1);
                 Wait.ElementIsVisible(xpathoption1);
 
@@ -2822,7 +2784,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist2);
                 WebBrowser.ElementClick(xpathlist2);
                 Wait.ElementIsVisible(xpathoption2);
 
@@ -2836,16 +2797,14 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathbutton);
-                WebBrowser.ButtonClick(xpathbutton);
+                WebBrowser.ButtonClick(xpathwheelbutton);
                 SearchResult(param1, param2);
             }
 
             // Search by 3 parameters
             public void WheelSearch(string param1, string param2, string param3, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2, string xpathlist3, string xpathoption3)
             {
-
-                Wait.ElementToBeClickable(xpathlist1);
+                WebBrowser.ElementClick(xpathwheelselect);
                 WebBrowser.ElementClick(xpathlist1);
                 Wait.ElementIsVisible(xpathoption1);
 
@@ -2859,7 +2818,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist2);
                 WebBrowser.ElementClick(xpathlist2);
                 Wait.ElementIsVisible(xpathoption2);
 
@@ -2873,7 +2831,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist3);
                 WebBrowser.ElementClick(xpathlist3);
                 Wait.ElementIsVisible(xpathoption3);
 
@@ -2887,8 +2844,7 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathbutton);
-                WebBrowser.ButtonClick(xpathbutton);
+                WebBrowser.ButtonClick(xpathwheelbutton);
                 SearchResult(param1, param2, param3);
             }
 
@@ -2896,8 +2852,7 @@ namespace NUnit.PitStop_
             public void WheelSearch(string param1, string param2, string param3, string param4, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2,
             string xpathlist3, string xpathoption3, string xpathlist4, string xpathoption4)
             {
-
-                Wait.ElementToBeClickable(xpathlist1);
+                WebBrowser.ElementClick(xpathwheelselect);
                 WebBrowser.ElementClick(xpathlist1);
                 Wait.ElementIsVisible(xpathoption1);
 
@@ -2911,7 +2866,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist2);
                 WebBrowser.ElementClick(xpathlist2);
                 Wait.ElementIsVisible(xpathoption2);
 
@@ -2925,7 +2879,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist3);
                 WebBrowser.ElementClick(xpathlist3);
                 Wait.ElementIsVisible(xpathoption3);
 
@@ -2939,7 +2892,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist4);
                 WebBrowser.ElementClick(xpathlist4);
                 Wait.ElementIsVisible(xpathoption4);
 
@@ -2953,8 +2905,7 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathbutton);
-                WebBrowser.ButtonClick(xpathbutton);
+                WebBrowser.ButtonClick(xpathwheelbutton);
                 SearchResult(param1, param2, param3, param4);
             }
 
@@ -2962,8 +2913,7 @@ namespace NUnit.PitStop_
             public void WheelSearch(string param1, string param2, string param3, string param4, string param5, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2,
             string xpathlist3, string xpathoption3, string xpathlist4, string xpathoption4, string xpathlist5, string xpathoption5)
             {
-
-                Wait.ElementToBeClickable(xpathlist1);
+                WebBrowser.ElementClick(xpathwheelselect);
                 WebBrowser.ElementClick(xpathlist1);
                 Wait.ElementIsVisible(xpathoption1);
 
@@ -2977,7 +2927,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist2);
                 WebBrowser.ElementClick(xpathlist2);
                 Wait.ElementIsVisible(xpathoption2);
 
@@ -2991,7 +2940,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist3);
                 WebBrowser.ElementClick(xpathlist3);
                 Wait.ElementIsVisible(xpathoption3);
 
@@ -3005,7 +2953,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist4);
                 WebBrowser.ElementClick(xpathlist4);
                 Wait.ElementIsVisible(xpathoption4);
 
@@ -3019,7 +2966,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist5);
                 WebBrowser.ElementClick(xpathlist5);
                 Wait.ElementIsVisible(xpathoption5);
 
@@ -3033,8 +2979,7 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathbutton);
-                WebBrowser.ButtonClick(xpathbutton);
+                WebBrowser.ButtonClick(xpathwheelbutton);
                 SearchResult(param1, param2, param3, param4, param5);
             }
 
@@ -3042,8 +2987,7 @@ namespace NUnit.PitStop_
             public void WheelSearch(string param1, string param2, string param3, string param4, string param5, string param6, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2,
             string xpathlist3, string xpathoption3, string xpathlist4, string xpathoption4, string xpathlist5, string xpathoption5, string xpathlist6, string xpathoption6)
             {
-
-                Wait.ElementToBeClickable(xpathlist1);
+                WebBrowser.ElementClick(xpathwheelselect);
                 WebBrowser.ElementClick(xpathlist1);
                 Wait.ElementIsVisible(xpathoption1);
 
@@ -3057,7 +3001,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist2);
                 WebBrowser.ElementClick(xpathlist2);
                 Wait.ElementIsVisible(xpathoption2);
 
@@ -3071,7 +3014,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist3);
                 WebBrowser.ElementClick(xpathlist3);
                 Wait.ElementIsVisible(xpathoption3);
 
@@ -3085,7 +3027,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist4);
                 WebBrowser.ElementClick(xpathlist4);
                 Wait.ElementIsVisible(xpathoption4);
 
@@ -3099,7 +3040,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist5);
                 WebBrowser.ElementClick(xpathlist5);
                 Wait.ElementIsVisible(xpathoption5);
 
@@ -3113,7 +3053,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist6);
                 WebBrowser.ElementClick(xpathlist6);
                 Wait.ElementIsVisible(xpathoption6);
 
@@ -3127,8 +3066,7 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathbutton);
-                WebBrowser.ButtonClick(xpathbutton);
+                WebBrowser.ButtonClick(xpathwheelbutton);
                 SearchResult(param1, param2, param3, param4, param5, param6);
             }
 
@@ -3137,8 +3075,7 @@ namespace NUnit.PitStop_
             string xpathlist3, string xpathoption3, string xpathlist4, string xpathoption4, string xpathlist5, string xpathoption5, string xpathlist6, string xpathoption6,
             string xpathlist7, string xpathoption7)
             {
-
-                Wait.ElementToBeClickable(xpathlist1);
+                WebBrowser.ElementClick(xpathwheelselect);
                 WebBrowser.ElementClick(xpathlist1);
                 Wait.ElementIsVisible(xpathoption1);
 
@@ -3152,7 +3089,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist2);
                 WebBrowser.ElementClick(xpathlist2);
                 Wait.ElementIsVisible(xpathoption2);
 
@@ -3166,7 +3102,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist3);
                 WebBrowser.ElementClick(xpathlist3);
                 Wait.ElementIsVisible(xpathoption3);
 
@@ -3180,7 +3115,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist4);
                 WebBrowser.ElementClick(xpathlist4);
                 Wait.ElementIsVisible(xpathoption4);
 
@@ -3194,7 +3128,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist5);
                 WebBrowser.ElementClick(xpathlist5);
                 Wait.ElementIsVisible(xpathoption5);
 
@@ -3208,7 +3141,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist6);
                 WebBrowser.ElementClick(xpathlist6);
                 Wait.ElementIsVisible(xpathoption6);
 
@@ -3222,7 +3154,6 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathlist7);
                 WebBrowser.ElementClick(xpathlist7);
                 Wait.ElementIsVisible(xpathoption7);
 
@@ -3236,8 +3167,7 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                Wait.ElementToBeClickable(xpathbutton);
-                WebBrowser.ButtonClick(xpathbutton);
+                WebBrowser.ButtonClick(xpathwheelbutton);
                 SearchResult(param1, param2, param3, param4, param5, param6, param7);
             }
         }
