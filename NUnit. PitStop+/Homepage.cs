@@ -3175,9 +3175,260 @@ namespace NUnit.PitStop_
             }
         }
 
-        public class SelectionByCar
+        public class CarSelection : Homepage
         {
+            // Empty search result warning & buttonclick verification
+            public void CarSearch()
+            {
+                WebBrowser.ElementClick(xpathcarselect);
 
+                WebBrowser.ButtonClick(xpathcarbutton);
+
+                Wait.ElementIsVisible(xpathsearchresult);
+                element = browser.FindElement(By.XPath(xpathsearchresult));
+                if (element.Text == expectedresult)
+                {
+                    Assert.Pass("Текст 'Не заданы параметра поиска' присутствует");
+                }
+                else Assert.Fail("Текст 'Не заданы параметра поиска' отсутствует");
+            }
+
+            // Search by 1 parameter
+            public void CarSearch(string param1, string xpathlist1, string xpathoption1)
+            {
+                WebBrowser.ElementClick(xpathcarselect);
+                WebBrowser.ElementClick(xpathlist1);
+                Wait.ElementIsVisible(xpathoption1);
+
+                List<IWebElement> list = browser.FindElements(By.XPath(xpathoption1)).ToList();
+                foreach (IWebElement element in list)
+                {
+                    if (element.Text.Contains(param1.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ButtonClick(xpathcarbutton);
+                SearchResult(param1);
+            }
+
+            // Search by 2 parameters
+            public void CarSearch(string param1, string param2, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2)
+            {
+                WebBrowser.ElementClick(xpathcarselect);
+                WebBrowser.ElementClick(xpathlist1);
+                Wait.ElementIsVisible(xpathoption1);
+
+                List<IWebElement> list = browser.FindElements(By.XPath(xpathoption1)).ToList();
+                foreach (IWebElement element in list)
+                {
+                    if (element.Text.Contains(param1.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ElementClick(xpathlist2);
+                Wait.ElementIsVisible(xpathoption2);
+
+                List<IWebElement> list1 = browser.FindElements(By.XPath(xpathoption2)).ToList();
+                foreach (IWebElement element in list1)
+                {
+                    if (element.Text.Contains(param2.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ButtonClick(xpathcarbutton);
+                SearchResult(param1, param2);
+            }
+
+            // Search by 3 parameters
+            public void CarSearch(string param1, string param2, string param3, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2, string xpathlist3, string xpathoption3)
+            {
+                WebBrowser.ElementClick(xpathcarselect);
+                WebBrowser.ElementClick(xpathlist1);
+                Wait.ElementIsVisible(xpathoption1);
+
+                List<IWebElement> list = browser.FindElements(By.XPath(xpathoption1)).ToList();
+                foreach (IWebElement element in list)
+                {
+                    if (element.Text.Contains(param1.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ElementClick(xpathlist2);
+                Wait.ElementIsVisible(xpathoption2);
+
+                List<IWebElement> list1 = browser.FindElements(By.XPath(xpathoption2)).ToList();
+                foreach (IWebElement element in list1)
+                {
+                    if (element.Text.Contains(param2.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ElementClick(xpathlist3);
+                Wait.ElementIsVisible(xpathoption3);
+
+                List<IWebElement> list3 = browser.FindElements(By.XPath(xpathoption3)).ToList();
+                foreach (IWebElement element in list3)
+                {
+                    if (element.Text.Contains(param3.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ButtonClick(xpathcarbutton);
+                SearchResult(param1, param2, param3);
+            }
+
+            // Search by 4 parameters
+            public void CarSearch(string param1, string param2, string param3, string param4, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2,
+            string xpathlist3, string xpathoption3, string xpathlist4, string xpathoption4)
+            {
+                WebBrowser.ElementClick(xpathcarselect);
+                WebBrowser.ElementClick(xpathlist1);
+                Wait.ElementIsVisible(xpathoption1);
+
+                List<IWebElement> list = browser.FindElements(By.XPath(xpathoption1)).ToList();
+                foreach (IWebElement element in list)
+                {
+                    if (element.Text.Contains(param1.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ElementClick(xpathlist2);
+                Wait.ElementIsVisible(xpathoption2);
+
+                List<IWebElement> list1 = browser.FindElements(By.XPath(xpathoption2)).ToList();
+                foreach (IWebElement element in list1)
+                {
+                    if (element.Text.Contains(param2.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ElementClick(xpathlist3);
+                Wait.ElementIsVisible(xpathoption3);
+
+                List<IWebElement> list3 = browser.FindElements(By.XPath(xpathoption3)).ToList();
+                foreach (IWebElement element in list3)
+                {
+                    if (element.Text.Contains(param3.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ElementClick(xpathlist4);
+                Wait.ElementIsVisible(xpathoption4);
+
+                List<IWebElement> list4 = browser.FindElements(By.XPath(xpathoption4)).ToList();
+                foreach (IWebElement element in list4)
+                {
+                    if (element.Text.Contains(param4.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ButtonClick(xpathcarbutton);
+                SearchResult(param1, param2, param3, param4);
+            }
+
+            // Search by 5 parameters
+            public void CarSearch(string param1, string param2, string param3, string param4, string param5, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2,
+            string xpathlist3, string xpathoption3, string xpathlist4, string xpathoption4, string xpathlist5, string xpathoption5)
+            {
+                WebBrowser.ElementClick(xpathcarselect);
+                WebBrowser.ElementClick(xpathlist1);
+                Wait.ElementIsVisible(xpathoption1);
+
+                List<IWebElement> list = browser.FindElements(By.XPath(xpathoption1)).ToList();
+                foreach (IWebElement element in list)
+                {
+                    if (element.Text.Contains(param1.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ElementClick(xpathlist2);
+                Wait.ElementIsVisible(xpathoption2);
+
+                List<IWebElement> list1 = browser.FindElements(By.XPath(xpathoption2)).ToList();
+                foreach (IWebElement element in list1)
+                {
+                    if (element.Text.Contains(param2.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ElementClick(xpathlist3);
+                Wait.ElementIsVisible(xpathoption3);
+
+                List<IWebElement> list3 = browser.FindElements(By.XPath(xpathoption3)).ToList();
+                foreach (IWebElement element in list3)
+                {
+                    if (element.Text.Contains(param3.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ElementClick(xpathlist4);
+                Wait.ElementIsVisible(xpathoption4);
+
+                List<IWebElement> list4 = browser.FindElements(By.XPath(xpathoption4)).ToList();
+                foreach (IWebElement element in list4)
+                {
+                    if (element.Text.Contains(param4.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ElementClick(xpathlist5);
+                Wait.ElementIsVisible(xpathoption5);
+
+                List<IWebElement> list5 = browser.FindElements(By.XPath(xpathoption5)).ToList();
+                foreach (IWebElement element in list5)
+                {
+                    if (element.Text.Contains(param5.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ButtonClick(xpathcarbutton);
+                SearchResult(param1, param2, param3, param4, param5);
+            }
         }
     }
 }

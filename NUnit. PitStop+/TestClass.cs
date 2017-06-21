@@ -22,7 +22,7 @@ namespace NUnit.PitStop_
     {
         TiresSelection test1 = new TiresSelection();
         WheelsSelection test2 = new WheelsSelection();
-        SelectionByCar test3 = new SelectionByCar();
+        CarSelection test3 = new CarSelection();
 
         // Tires
         string xpathbrand = ".//div[@class='form f1']//fieldset[1]/div[1]";
@@ -103,6 +103,8 @@ namespace NUnit.PitStop_
         {
             // Empty wheel search exist warning "Не заданы параметры поиска"
             test2.WheelSearch();
+            // Empty search result verification
+            test1.SearchResult();
             // Data:
             // xpathlist = xpathwheelbrand || xpathwheelwidth || xpathwheelprofile || etc.
             // xpathoption = xpathwheelbrandoption || xpathwheelwidthoption || xpathwheelprofileoption || etc.
