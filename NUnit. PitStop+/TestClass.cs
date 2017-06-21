@@ -134,15 +134,16 @@ namespace NUnit.PitStop_
         public void TestMethod3()
         {
             // Empty car search exists warning "Не заданы параметры поиска"
-            test3.CarSearch();
+            //test3.CarSearch();
             // Empty search result verification
-            test3.SearchResult();
+            //test3.SearchResult();
             // Data:
-            // xpathlist = xpathcarbrand || xpathcarmodel || xpathcaryear || etc.
-            // xpathoption = xpathcarbrandoption || xpathcarmodeloption || xpathcaryearoption || etc.
+            // xpathlist = xpathcar || xpathcarmodel || xpathcaryear || etc.
+            // xpathoption = xpathcaroption || xpathcarmodeloption || xpathcaryearoption || etc.
 
-            // Search by carbrand
-
+            // Stock and Alternative configuration lists existence
+            test3.ConfigurationListsExist("шины", "Acura", "CL", "1998", "2.3 i", xpathcar, xpathcaroption, xpathcarbrand, xpathcarbrandoption, xpathcarmodel, xpathcarmodeloption, xpathcaryear,
+                xpathcaryearoption, xpathcarmodif, xpathcarmodifoption);
             // Search by carmodel
 
             // Search by caryear
