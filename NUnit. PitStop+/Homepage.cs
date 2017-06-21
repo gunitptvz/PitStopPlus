@@ -571,26 +571,25 @@ namespace NUnit.PitStop_
             //    SearchResult(xpathsearchresultlist);
             //}
 
-            //// Search by TiresWidth
-            //public void TiresSearch(TireWidth width)
+            ////Search by TiresWidth
+            //public void TiresSearch(string width, string xpathlist1, string xpathoption1)
             //{
-            //    Wait.ElementToBeClickable(xpathselectwidthlist);
-            //    WebBrowser.ElementClick(xpathselectwidthlist);
-            //    Wait.ElementIsVisible(xpathselectwidthoption);
+            //    WebBrowser.ElementClick(xpathlist1);
+            //    Wait.ElementIsVisible(xpathoption1);
 
-            //    List<IWebElement> widthlist = browser.FindElements(By.XPath(xpathselectwidthoption)).ToList();
+            //    List<IWebElement> widthlist = browser.FindElements(By.XPath(xpathoption1)).ToList();
             //    foreach (IWebElement element in widthlist)
             //    {
-            //        if (element.Text.Contains(EnumParse.EnumTireWidth(width)))
+            //        if (element.Text.Contains(width.ToString()))
             //        {
             //            element.Click();
             //            break;
             //        }
             //    }
 
-            //    Wait.ElementToBeClickable(xpathbutton);
-            //    WebBrowser.ButtonClick(xpathbutton);
-            //    SearchResult(xpathsearchresultlist);
+            //    Wait.ElementToBeClickable(xpathtirebutton);
+            //    WebBrowser.ButtonClick(xpathtirebutton);
+            //    SearchResult(xpathresultlist);
             //}
 
             //// Search by TiresDiameter
