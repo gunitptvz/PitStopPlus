@@ -32,12 +32,12 @@ namespace NUnit.PitStop_
         string xpathseason = ".//div[@class='form f1']//fieldset[1]/div[6]";
         string xpaththorn = ".//div[@class='pseudo-select']";
 
-        string xpathbrandoption = ".//div[@class='form f1']//div[1]//div[2]//div";
-        string xpathwidthoption = ".//div[@class='form f1']//div[2]//div[2]//div";
-        string xpathprofileoption = ".//div[@class='form f1']//div[3]//div[2]//div";
-        string xpathdiameteroption = ".//div[@class='form f1']//div[5]//div[2]//div";
-        string xpathseasonoption = ".//div[@class='form f1']//div[6]//div[2]//div";
-        string xpaththornoption = ".//div[@class='pseudo-select']//div[2]//div";
+        string xpathbrandoption = ".//div[@class='form f1']//div[1]//div[2]/div";
+        string xpathwidthoption = ".//div[@class='form f1']//div[2]//div[2]/div";
+        string xpathprofileoption = ".//div[@class='form f1']//div[3]//div[2]/div";
+        string xpathdiameteroption = ".//div[@class='form f1']//div[5]//div[2]/div";
+        string xpathseasonoption = ".//div[@class='form f1']//div[6]//div[2]/div";
+        string xpaththornoption = ".//div[@class='pseudo-select']//div[2]/div";
 
         // Wheels
         string xpathwheelbrand = ".//div[@class='form f3']//fieldset[1]/div[1]";
@@ -48,18 +48,26 @@ namespace NUnit.PitStop_
         string xpathwheeldiameterPCD = ".//div[@class='form f3']//fieldset[1]/div[8]";
         string xpathweeldiameterCH = ".//div[@class='form f3']//fieldset[1]/div[9]";
 
-        string xpathwheelbrandoption = ".//div[@class='form f3']//div[1]//div[2]//div";
-        string xpathwheelwidthoption = ".//div[@class='form f3']//div[2]//div[2]//div";
-        string xpathwheeldiameteroption = ".//div[@class='form f3']//div[3]//div[2]//div";
-        string xpathfixtureoption = ".//div[@class='form f3']//div[5]//div[2]//div";
-        string xpathradiusEToption = ".//div[@class='form f3']//div[6]//div[2]//div";
-        string xpathwheeldiameterPCDoption = ".//div[@class='form f3']//div[8]//div[2]//div";
-        string xpathweeldiameterCHoption = ".//div[@class='form f3']//div[9]//div[2]//div";
+        string xpathwheelbrandoption = ".//div[@class='form f3']//div[1]//div[2]/div";
+        string xpathwheelwidthoption = ".//div[@class='form f3']//div[2]//div[2]/div";
+        string xpathwheeldiameteroption = ".//div[@class='form f3']//div[3]//div[2]/div";
+        string xpathfixtureoption = ".//div[@class='form f3']//div[5]//div[2]/div";
+        string xpathradiusEToption = ".//div[@class='form f3']//div[6]//div[2]/div";
+        string xpathwheeldiameterPCDoption = ".//div[@class='form f3']//div[8]//div[2]/div";
+        string xpathweeldiameterCHoption = ".//div[@class='form f3']//div[9]//div[2]/div";
 
         // Car
-        string xpathcartire = ".//div[@class='pseudo-select w313 main']";
+        string xpathcar = ".//div[@class='pseudo-select w313 main']";
         string xpathcarbrand = ".//div[@class='form f2']//fieldset[1]/div[1]";
         string xpathcarmodel = ".//div[@class='form f2']//fieldset[1]/div[2]";
+        string xpathcaryear = ".//div[@class='form f2']//fieldset[1]/div[4]";
+        string xpathcarmodif = ".//div[@class='form f2']//fieldset[1]/div[5]";
+
+        string xpathcaroption = ".//div[@class='pd']/div[1]/div[2]/div";
+        string xpathcarbrandoption = ".//div[@class='form f2']//div[1]//div[2]/div";
+        string xpathcarmodeloption = ".//div[@class='form f2']//div[2]//div[2]/div";
+        string xpathcaryearoption = ".//div[@class='form f2']//div[4]//div[2]/div";
+        string xpathcarmodifoption = ".//div[@class='form f2']//div[5]//div[2]/div";
 
         [Test] // Quick search form testing
         public void TestMethod1()
@@ -120,7 +128,7 @@ namespace NUnit.PitStop_
 
         }
 
-        [Test]
+        [Test] // Qucik search form testing
         public void TestMethod3()
         {
 
