@@ -24,6 +24,7 @@ namespace NUnit.PitStop_
         string xpathtirebutton = ".//*[@id='filt_sub']";
         string xpathwheelbutton = ".//div[@class='form f3']//button[1]";
         string xpathcarbutton = ".//div[@class='form f2']//button[1]";
+        string xpathcarbutton1 = ".//div[@class='form f4']//button[1]";
 
         string xpathresultlist = ".//div[@class='tires_catalog_search']//a[@class='tires_catalog_name']";
 
@@ -3197,7 +3198,15 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                WebBrowser.ButtonClick(xpathcarbutton);
+                if(param1 == "шины")
+                {
+                    WebBrowser.ButtonClick(xpathcarbutton);
+                }
+                if(param1 == "диски")
+                {
+                    WebBrowser.ButtonClick(xpathcarbutton1);
+                }
+                
                 Wait.ElementIsVisible(xpathstockconfig);
                 Wait.ElementIsVisible(xpathalternconfig);
 
@@ -3207,6 +3216,97 @@ namespace NUnit.PitStop_
                 Assert.AreEqual("Посмотреть варианты", element.Text, "Элемент не найден");
             }
 
+            // Go to from wheels or tires
+            public void GoToFromWheelsOrTires(string param1, string param2, string param3, string param4, string param5, string xpathlist1, string xpathoption1, string xpathlist2, string xpathoption2,
+            string xpathlist3, string xpathoption3, string xpathlist4, string xpathoption4, string xpathlist5, string xpathoption5)
+            {
+                WebBrowser.ElementClick(xpathcarselect);
+                WebBrowser.ElementClick(xpathlist1);
+                Wait.ElementIsVisible(xpathoption1);
+
+                List<IWebElement> list = browser.FindElements(By.XPath(xpathoption1)).ToList();
+                foreach (IWebElement element in list)
+                {
+                    if (element.Text.Contains(param1.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ElementClick(xpathlist2);
+                Wait.ElementIsVisible(xpathoption2);
+
+                List<IWebElement> list1 = browser.FindElements(By.XPath(xpathoption2)).ToList();
+                foreach (IWebElement element in list1)
+                {
+                    if (element.Text.Contains(param2.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ElementClick(xpathlist3);
+                Wait.ElementIsVisible(xpathoption3);
+
+                List<IWebElement> list3 = browser.FindElements(By.XPath(xpathoption3)).ToList();
+                foreach (IWebElement element in list3)
+                {
+                    if (element.Text.Contains(param3.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ElementClick(xpathlist4);
+                Wait.ElementIsVisible(xpathoption4);
+
+                List<IWebElement> list4 = browser.FindElements(By.XPath(xpathoption4)).ToList();
+                foreach (IWebElement element in list4)
+                {
+                    if (element.Text.Contains(param4.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                WebBrowser.ElementClick(xpathlist5);
+                Wait.ElementIsVisible(xpathoption5);
+
+                List<IWebElement> list5 = browser.FindElements(By.XPath(xpathoption5)).ToList();
+                foreach (IWebElement element in list5)
+                {
+                    if (element.Text.Contains(param5.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                if(param1 == "шины")
+                {
+                    WebBrowser.ButtonClick(xpathcarbutton);
+                    element = browser.FindElement(By.LinkText("посмотреть диски"));
+                    Assert.AreEqual("посмотреть диски", element.Text, "Элемент не найден");
+                    element.Click();
+                }
+                if(param1 == "диски")
+                {
+                    WebBrowser.ButtonClick(xpathcarbutton1);
+                    element = browser.FindElement(By.LinkText("посмотреть шины"));
+                    Assert.AreEqual("посмотреть шины", element.Text, "Элемент не найден");
+                    element.Click();
+                }
+            }
+
+            // Tires or wheels configuration selection
+            public void TireWheelConfigSelect(string parameter, string xpathlist, string xpathoption)
+            {
+
+            }
 
         }
     }

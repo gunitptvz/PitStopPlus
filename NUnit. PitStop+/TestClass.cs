@@ -58,16 +58,37 @@ namespace NUnit.PitStop_
 
         // Car
         string xpathcar = ".//div[@class='pseudo-select w313 main']";
+        string xpathcaroption = ".//div[@class='pd']/div[1]/div[2]/div";
+        // For tires
         string xpathcarbrand = ".//div[@class='form f2']//fieldset[1]/div[1]";
         string xpathcarmodel = ".//div[@class='form f2']//fieldset[1]/div[2]";
         string xpathcaryear = ".//div[@class='form f2']//fieldset[1]/div[4]";
         string xpathcarmodif = ".//div[@class='form f2']//fieldset[1]/div[5]";
 
-        string xpathcaroption = ".//div[@class='pd']/div[1]/div[2]/div";
         string xpathcarbrandoption = ".//div[@class='form f2']//div[1]//div[2]/div";
         string xpathcarmodeloption = ".//div[@class='form f2']//div[2]//div[2]/div";
         string xpathcaryearoption = ".//div[@class='form f2']//div[4]//div[2]/div";
         string xpathcarmodifoption = ".//div[@class='form f2']//div[5]//div[2]/div";
+        // For wheels
+        string xpathcarbrand1 = ".//div[@class='form f4']//fieldset[1]/div[1]";
+        string xpathcarmodel1 = ".//div[@class='form f4']//fieldset[1]/div[2]";
+        string xpathcaryear1 = ".//div[@class='form f4']//fieldset[1]/div[4]";
+        string xpathcarmodif1 = ".//div[@class='form f4']//fieldset[1]/div[5]";
+
+        string xpathcarbrandoption1 = ".//div[@class='form f4']//div[1]//div[2]/div";
+        string xpathcarmodeloption1 = ".//div[@class='form f4']//div[2]//div[2]/div";
+        string xpathcaryearoption1 = ".//div[@class='form f4']//div[4]//div[2]/div";
+        string xpathcarmodifoption1 = ".//div[@class='form f4']//div[5]//div[2]/div";
+
+        // Tire or wheel config selection
+        string xpathshowvarstock = ".//*[@id='filter-result']//li[1]/div[1]";
+        string xpathshowvaraltern = ".//*[@id='filter-result']//li[2]/div[1]";
+
+        string xpathshowvarstockoption = ".//*[@id='filter-result']//li[1]/div[1]//a";
+        string xpathshowvaralternoption = ".//*[@id='filter-result']//li[2]/div[1]//a";
+
+
+
 
         [Test] // Quick search form testing
         public void TestMethod1()
@@ -142,9 +163,15 @@ namespace NUnit.PitStop_
             // xpathoption = xpathcaroption || xpathcarmodeloption || xpathcaryearoption || etc.
 
             // Stock and Alternative configuration lists existence
-            test3.ConfigurationListsExist("шины", "Acura", "CL", "1998", "2.3 i", xpathcar, xpathcaroption, xpathcarbrand, xpathcarbrandoption, xpathcarmodel, xpathcarmodeloption, xpathcaryear,
-                xpathcaryearoption, xpathcarmodif, xpathcarmodifoption);
-            // Search by carmodel
+            /*test3.ConfigurationListsExist("диски", "Acura", "CL", "1998", "2.3 i", xpathcar, xpathcaroption, xpathcarbrand1, xpathcarbrandoption1, xpathcarmodel1, xpathcarmodeloption1,
+                xpathcaryear1, xpathcaryearoption1, xpathcarmodif1, xpathcarmodifoption1);*/
+            // Go to wheel search from tires search
+            /*test3.GoToFromWheelsOrTires("шины", "Acura", "CL", "1998", "2.3 i", xpathcar, xpathcaroption, xpathcarbrand, xpathcarbrandoption, xpathcarmodel, xpathcarmodeloption, xpathcaryear,
+            xpathcaryearoption, xpathcarmodif, xpathcarmodifoption);*/
+            // Go to tires search from wheel search
+            /*test3.GoToFromWheelsOrTires("диски", "Acura", "CL", "1998", "2.3 i", xpathcar, xpathcaroption, xpathcarbrand1, xpathcarbrandoption1, xpathcarmodel1, xpathcarmodeloption1,
+                xpathcaryear1, xpathcaryearoption1, xpathcarmodif1, xpathcarmodifoption1);*/
+            // Tires or wheels configuration selection
 
             // Search by caryear
 
