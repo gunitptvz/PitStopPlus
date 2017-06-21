@@ -138,9 +138,16 @@ namespace NUnit.PitStop_
             // Empty search result verification
             test3.SearchResult();
             // Data:
-            // xpathlist = xpathwheelbrand || xpathwheelwidth || xpathwheelprofile || etc.
-            // xpathoption = xpathwheelbrandoption || xpathwheelwidthoption || xpathwheelprofileoption || etc.
+            // xpathlist = xpathcarbrand || xpathcarmodel || xpathcaryear || etc.
+            // xpathoption = xpathcarbrandoption || xpathcarmodeloption || xpathcaryearoption || etc.
 
+            // Search by carbrand
+
+            // Search by carmodel
+
+            // Search by caryear
+
+            // Search by carmodification
 
         }
 
