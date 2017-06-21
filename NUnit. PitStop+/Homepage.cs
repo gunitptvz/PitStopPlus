@@ -18,7 +18,8 @@ namespace NUnit.PitStop_
     {
         // Data
         string xpathsearchresult = ".//*[@id='filter-result']";
-        string expectedresult = "Не заданы параметры поиска";
+        string expectedresult1 = "Не заданы параметры поиска";
+        string expectedresult2 = "Ваша машина не известна";
 
         string xpathtirebutton = ".//*[@id='filt_sub']";
         string xpathwheelbutton = ".//div[@class='form f3']//button[1]";
@@ -27,17 +28,18 @@ namespace NUnit.PitStop_
         string xpathresultlist = ".//div[@class='tires_catalog_search']//a[@class='tires_catalog_name']";
 
         string xpathwheelselect = ".//p[@class='filter_h pd_bord']";
-        string xpathcarselect = ".//div[@class='tab last selected expanded']//p[1]";
+        string xpathcarselect = ".//div[@class='filter']/div[3]//p[@class='filter_h']";
 
         // Result list is(not) empty
         public void SearchResult()
         {
             List<IWebElement> tireslist = browser.FindElements(By.XPath(xpathresultlist)).ToList();
-            if (tireslist.Count != 0)
-            {
-                Assert.Pass("Список шин указанного бренда не пустой");
-            }
-            else Assert.Fail("Список шин указанного бренда пустой");
+            Assert.IsEmpty(tireslist, "Cписок товаров не пустой");
+            //if (tireslist.Count != 0)
+            //{
+            //    Assert.Pass("Список товаров не пустой");
+            //}
+            //else Assert.Fail("Список товаров пустой");
         }
 
         // Result list contains incoming parameters
@@ -45,43 +47,18 @@ namespace NUnit.PitStop_
         public void SearchResult(string param1)
         {
             List<IWebElement> tireslist = browser.FindElements(By.XPath(xpathresultlist)).ToList();
-            foreach (IWebElement element in tireslist)
-            {
-                if (tireslist.Count != 0)
-                {
-                    if (element.Text.Contains(param1))
-                    {
-                        Assert.Pass("Список содержит заданный параметр");
-                    }
-                    else Assert.Fail("Список не содержит заданного параметра");
-                }
-                else
-                {
-                    Assert.Pass("Список пустой");
-                    break;
-                }
-            }
+            Assert.IsNotEmpty(tireslist, "Список пустой");
+            Assert.Contains(param1, tireslist, "Список не содержит заданного параметра");
         }
 
         // 2 parameters
         public void SearchResult(string param1, string param2)
         {
             List<IWebElement> tireslist = browser.FindElements(By.XPath(xpathresultlist)).ToList();
+            Assert.IsNotEmpty(tireslist, "Список пустой");
             foreach (IWebElement element in tireslist)
             {
-                if (tireslist.Count != 0)
-                {
-                    if (element.Text.Contains(param1) & element.Text.Contains(param2))
-                    {
-                        Assert.Pass("Список содержит заданные параметры");
-                    }
-                    else Assert.Fail("Список не содержит заданных параметров");
-                }
-                else
-                {
-                    Assert.Pass("Список пустой");
-                    break;
-                }
+                Assert.That(element.Text.Contains(param1) & element.Text.Contains(param2), "Список не содержит заданных параметров");
             }
         }
 
@@ -89,43 +66,21 @@ namespace NUnit.PitStop_
         public void SearchResult(string param1, string param2, string param3)
         {
             List<IWebElement> tireslist = browser.FindElements(By.XPath(xpathresultlist)).ToList();
-            foreach (IWebElement element in tireslist)
-            {
-                if (tireslist.Count != 0)
+            Assert.IsNotEmpty(tireslist, "Список пустой");
+                foreach (IWebElement element in tireslist)
                 {
-                    if (element.Text.Contains(param1) & element.Text.Contains(param2) & element.Text.Contains(param3))
-                    {
-                        Assert.Pass("Список содержит заданные параметры");
-                    }
-                    else Assert.Fail("Список не содержит заданных параметров");
-                }
-                else
-                {
-                    Assert.Pass("Список пустой");
-                    break;
-                }
-            }
+                    Assert.That(element.Text.Contains(param1) & element.Text.Contains(param2) & element.Text.Contains(param3), "Список не содержит заданных параметров");
+                } 
         }
-
         // 4 parameters
         public void SearchResult(string param1, string param2, string param3, string param4)
         {
             List<IWebElement> tireslist = browser.FindElements(By.XPath(xpathresultlist)).ToList();
+            Assert.IsNotEmpty(tireslist, "Список пустой");
             foreach (IWebElement element in tireslist)
             {
-                if (tireslist.Count != 0)
-                {
-                    if (element.Text.Contains(param1) & element.Text.Contains(param2) & element.Text.Contains(param3) & element.Text.Contains(param4))
-                    {
-                        Assert.Pass("Список содержит заданные параметры");
-                    }
-                    else Assert.Fail("Список не содержит заданных параметров");
-                }
-                else
-                {
-                    Assert.Pass("Список пустой");
-                    break;
-                }
+                Assert.That(element.Text.Contains(param1) & element.Text.Contains(param2) & element.Text.Contains(param3) & element.Text.Contains(param4),
+                    "Список не содержит заданных параметров");
             }
         }
 
@@ -133,21 +88,11 @@ namespace NUnit.PitStop_
         public void SearchResult(string param1, string param2, string param3, string param4, string param5)
         {
             List<IWebElement> tireslist = browser.FindElements(By.XPath(xpathresultlist)).ToList();
+            Assert.IsNotEmpty(tireslist, "Список пустой");
             foreach (IWebElement element in tireslist)
             {
-                if (tireslist.Count != 0)
-                {
-                    if (element.Text.Contains(param1) & element.Text.Contains(param2) & element.Text.Contains(param3) & element.Text.Contains(param4) & element.Text.Contains(param5))
-                    {
-                        Assert.Pass("Список содержит заданные параметры");
-                    }
-                    else Assert.Fail("Список не содержит заданных параметров");
-                }
-                else
-                {
-                    Assert.Pass("Список пустой");
-                    break;
-                }
+                Assert.That(element.Text.Contains(param1) & element.Text.Contains(param2) & element.Text.Contains(param3) & element.Text.Contains(param4) & element.Text.Contains(param5),
+                    "Список не содержит заданных параметров");
             }
         }
 
@@ -155,18 +100,11 @@ namespace NUnit.PitStop_
         public void SearchResult(string param1, string param2, string param3, string param4, string param5, string param6)
         {
             List<IWebElement> tireslist = browser.FindElements(By.XPath(xpathresultlist)).ToList();
+            Assert.IsNotEmpty(tireslist, "Список пустой");
             foreach (IWebElement element in tireslist)
             {
-                if (tireslist.Count != 0)
-                {
-                    if (element.Text.Contains(param1) & element.Text.Contains(param2) & element.Text.Contains(param3) & element.Text.Contains(param4) & element.Text.Contains(param5)
-                        & element.Text.Contains(param6))
-                    {
-                        Assert.Pass("Список содержит заданные параметры");
-                    }
-                    else Assert.Fail("Список не содержит заданных параметров");
-                }
-                else Assert.Pass("Список пустой");
+                Assert.That(element.Text.Contains(param1) & element.Text.Contains(param2) & element.Text.Contains(param3) & element.Text.Contains(param4) & element.Text.Contains(param5) &
+                    element.Text.Contains(param6), "Список не содержит заданных параметров");
             }
         }
 
@@ -174,18 +112,11 @@ namespace NUnit.PitStop_
         public void SearchResult(string param1, string param2, string param3, string param4, string param5, string param6, string param7)
         {
             List<IWebElement> tireslist = browser.FindElements(By.XPath(xpathresultlist)).ToList();
+            Assert.IsNotEmpty(tireslist, "Список пустой");
             foreach (IWebElement element in tireslist)
             {
-                if (tireslist.Count != 0)
-                {
-                    if (element.Text.Contains(param1) & element.Text.Contains(param2) & element.Text.Contains(param3) & element.Text.Contains(param4) & element.Text.Contains(param5)
-                        & element.Text.Contains(param6) & element.Text.Contains(param7))
-                    {
-                        Assert.Pass("Список содержит заданные параметры");
-                    }
-                    else Assert.Fail("Список не содержит заданных параметров");
-                }
-                else Assert.Pass("Список пустой");
+                Assert.That(element.Text.Contains(param1) & element.Text.Contains(param2) & element.Text.Contains(param3) & element.Text.Contains(param4) & element.Text.Contains(param5) &
+                    element.Text.Contains(param6) & element.Text.Contains(param7), "Список не содержит заданных параметров");
             }
         }
 
@@ -201,13 +132,15 @@ namespace NUnit.PitStop_
 
                 Wait.ElementIsVisible(xpathsearchresult);
                 element = browser.FindElement(By.XPath(xpathsearchresult));
-                if (element.Text == expectedresult)
-                {
-                    Assert.Pass("Текст 'Не заданы параметра поиска' присутствует");
-                    // Reports.AddLogPass("Actual Result2: Текст содержит: " + element.Text);
-                }
-                else Assert.Fail("Текст 'Не заданы параметра поиска' отсутствует");
-                // Reports.AddLogFail("Actual Result: Текст не содержит: " + element.Text);
+                Assert.AreEqual(expectedresult1, element.Text, "Текст 'Не заданы параметры поиска' отсутствует");
+
+                //if (element.Text == expectedresult1)
+                //{
+                //    Assert.Pass("Текст 'Не заданы параметра поиска' присутствует");
+                //    // Reports.AddLogPass("Actual Result2: Текст содержит: " + element.Text);
+                //}
+                //else Assert.Fail("Текст 'Не заданы параметра поиска' отсутствует");
+                //// Reports.AddLogFail("Actual Result: Текст не содержит: " + element.Text);
             }
 
             // Search by 1 parameter
@@ -2742,11 +2675,12 @@ namespace NUnit.PitStop_
 
                 Wait.ElementIsVisible(xpathsearchresult);
                 element = browser.FindElement(By.XPath(xpathsearchresult));
-                if (element.Text == expectedresult)
-                {
-                    Assert.Pass("Текст 'Не заданы параметра поиска' присутствует");
-                }
-                else Assert.Fail("Текст 'Не заданы параметра поиска' отсутствует");
+                Assert.AreEqual(expectedresult1, element.Text, "Текст 'Не заданы параметра поиска' отсутствует");
+                //if (element.Text == expectedresult1)
+                //{
+                //    Assert.Pass("Текст 'Не заданы параметра поиска' присутствует");
+                //}
+                //else Assert.Fail("Текст 'Не заданы параметра поиска' отсутствует");
             }
 
             // Search by 1 parameter
@@ -3186,11 +3120,7 @@ namespace NUnit.PitStop_
 
                 Wait.ElementIsVisible(xpathsearchresult);
                 element = browser.FindElement(By.XPath(xpathsearchresult));
-                if (element.Text == expectedresult)
-                {
-                    Assert.Pass("Текст 'Не заданы параметра поиска' присутствует");
-                }
-                else Assert.Fail("Текст 'Не заданы параметра поиска' отсутствует");
+                Assert.AreEqual(expectedresult2, element.Text, "Ваша машина не известна");
             }
 
             // Search by 1 parameter
