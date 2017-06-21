@@ -72,7 +72,7 @@ namespace NUnit.PitStop_
         [Test] // Quick search form testing
         public void TestMethod1()
         {
-            // Empty tire search testing: exist warning "Не заданы параметры поиска" 
+            // Empty tire search exists warning "Не заданы параметры поиска" 
             test1.TiresSearch();
             // Empty search result verification
             test1.SearchResult();
@@ -101,7 +101,7 @@ namespace NUnit.PitStop_
         [Test] // Quick search form testing
         public void TestMethod2()
         {
-            // Empty wheel search exist warning "Не заданы параметры поиска"
+            // Empty tire search exists warning "Не заданы параметры поиска"
             test2.WheelSearch();
             // Empty search result verification
             test1.SearchResult();
@@ -133,6 +133,14 @@ namespace NUnit.PitStop_
         [Test] // Qucik search form testing
         public void TestMethod3()
         {
+            // Empty car search exists warning "Не заданы параметры поиска"
+            test3.CarSearch();
+            // Empty search result verification
+            test3.SearchResult();
+            // Data:
+            // xpathlist = xpathwheelbrand || xpathwheelwidth || xpathwheelprofile || etc.
+            // xpathoption = xpathwheelbrandoption || xpathwheelwidthoption || xpathwheelprofileoption || etc.
+
 
         }
 
