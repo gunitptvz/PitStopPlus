@@ -22,8 +22,12 @@ namespace NUnit.PitStop_
 
         string xpathtirebutton = ".//*[@id='filt_sub']";
         string xpathwheelbutton = ".//div[@class='form f3']//button[1]";
+        string xpathcarbutton = ".//div[@class='form f2']//button[1]";
+
         string xpathresultlist = ".//div[@class='tires_catalog_search']//a[@class='tires_catalog_name']";
+
         string xpathwheelselect = ".//p[@class='filter_h pd_bord']";
+        string xpathcarselect = ".//div[@class='tab last selected expanded']//p[1]";
 
         // Result list is(not) empty
         public void SearchResult()

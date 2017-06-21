@@ -22,6 +22,7 @@ namespace NUnit.PitStop_
     {
         TiresSelection test1 = new TiresSelection();
         WheelsSelection test2 = new WheelsSelection();
+        SelectionByCar test3 = new SelectionByCar();
 
         // Tires
         string xpathbrand = ".//div[@class='form f1']//fieldset[1]/div[1]";
@@ -56,28 +57,40 @@ namespace NUnit.PitStop_
         string xpathweeldiameterCHoption = ".//div[@class='form f3']//div[9]//div[2]//div";
 
         // Car
+        string xpathcartire = ".//div[@class='pseudo-select w313 main']";
+        string xpathcarbrand = ".//div[@class='form f2']//fieldset[1]/div[1]";
+        string xpathcarmodel = ".//div[@class='form f2']//fieldset[1]/div[2]";
 
-        [Test] // Подбор шин на главной странице
+        [Test] // Quick search form testing
         public void TestMethod1()
         {
-            // Empty tire search exist warning "Не заданы параметры поиска" 
+            // Empty tire search testing: exist warning "Не заданы параметры поиска" 
             test1.TiresSearch();
+            // Empty search result verification
+            test1.SearchResult();
             // Data:
             // xpathlist = xpathbrand || xpathwidth || xpathprofile || etc.
             // xpathoption = xpathbrandoption || xpathwidthoption || xpathprofileoption || etc.
+
+            // Tire search by brand
             test1.TiresSearch("Dunlop", xpathbrand, xpathbrandoption);
-            test1.SearchResult();
+            // Tire search "by brand" result testing
             test1.SearchResult("Dunlop");
+            // Tire search by brand & width
             test1.TiresSearch("Cooper", "285", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption);
+            // Tire search by brand, width & profile
             test1.TiresSearch("Cooper", "235", "65", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption);
+            // Tire search by brand, width, profile & diameter
             test1.TiresSearch("Cooper", "235", "65", "R16", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption, xpathdiameter, xpathdiameteroption);
+            // Tire search by brand, width, profile, diameter & season
             test1.TiresSearch("Cooper", "235", "65", "R16", "Зима", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption, xpathdiameter,
                               xpathdiameteroption, xpathseason, xpathseasonoption);
+            // Tire search by brand, width, profile, diameter, winter season & thorn
             test1.TiresSearch("Cooper", "235", "65", "R16", "Зимние", "Нет", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption, xpathdiameter,
                               xpathdiameteroption, xpathseason, xpathseasonoption, xpaththorn, xpaththornoption);
         }
 
-        [Test]
+        [Test] // Quick search form testing
         public void TestMethod2()
         {
             // Empty wheel search exist warning "Не заданы параметры поиска"
@@ -85,15 +98,23 @@ namespace NUnit.PitStop_
             // Data:
             // xpathlist = xpathwheelbrand || xpathwheelwidth || xpathwheelprofile || etc.
             // xpathoption = xpathwheelbrandoption || xpathwheelwidthoption || xpathwheelprofileoption || etc.
+
+            // Wheel search by brand
             test2.WheelSearch("Catwild", xpathwheelbrand, xpathwheelbrandoption);
+            // Wheel search by brand & width
             test2.WheelSearch("Catwild", "6", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption);
+            // Wheel search by brand, width & diameter
             test2.WheelSearch("Catwild", "6", "15", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption, xpathwheeldiameter, xpathwheeldiameteroption);
+            // Wheel search by brand, width, diameter & fixture
             test2.WheelSearch("Catwild", "6", "15", "5", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption, xpathwheeldiameter, xpathwheeldiameteroption,
                               xpathfixture, xpathfixtureoption);
+            // Wheel search by brand, width, diameter, fixture & radiusET
             test2.WheelSearch("Catwild", "6", "15", "5", "39", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption, xpathwheeldiameter, xpathwheeldiameteroption,
                               xpathfixture, xpathfixtureoption, xpathradiusET, xpathradiusEToption);
+            // Wheel search by brand, width, diameter, fixture, radiusET & diameterPCD
             test2.WheelSearch("Catwild", "6", "15", "5", "39", "114,3", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption, xpathwheeldiameter, xpathwheeldiameteroption,
                               xpathfixture, xpathfixtureoption, xpathradiusET, xpathradiusEToption, xpathwheeldiameterPCD, xpathwheeldiameterPCDoption);
+            // Wheel search by brand, width, diameter, fixture, radiusET, diameterPCD & diameterCH
             test2.WheelSearch("Catwild", "6", "15", "5", "39", "114,3", "60,1", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption, xpathwheeldiameter, xpathwheeldiameteroption,
                               xpathfixture, xpathfixtureoption, xpathradiusET, xpathradiusEToption, xpathwheeldiameterPCD, xpathwheeldiameterPCDoption, xpathweeldiameterCH, xpathweeldiameterCHoption);
 
