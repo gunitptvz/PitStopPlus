@@ -31,7 +31,14 @@ namespace NUnit.PitStop_
         string xpathwheelselect = ".//p[@class='filter_h pd_bord']";
         string xpathcarselect = ".//div[@class='filter']/div[3]//p[@class='filter_h']";
 
-        // Result list is(not) empty
+        // Result list isn't empty
+        public void SearchResultIsNotEmpty()
+        {
+            List<IWebElement> tireslist = browser.FindElements(By.XPath(xpathresultlist)).ToList();
+            Assert.IsNotEmpty(tireslist, "Cписок товаров пустой");
+        }
+
+        // Result list is empty
         public void SearchResult()
         {
             List<IWebElement> tireslist = browser.FindElements(By.XPath(xpathresultlist)).ToList();
@@ -3113,8 +3120,11 @@ namespace NUnit.PitStop_
         public class CarSelection : Homepage
         {
             // Data
+            // Stock configuration
             string xpathstockconfig = ".//*[@id='filter-result']//li[1]/div[1]";
+            // Alternative configuration
             string xpathalternconfig = ".//*[@id='filter-result']//li[2]/div[1]";
+
 
             // Empty search result warning & buttonclick verification
             public void CarSearch()
@@ -3303,11 +3313,42 @@ namespace NUnit.PitStop_
             }
 
             // Tires or wheels configuration selection
-            public void TireWheelConfigSelect(string parameter, string xpathlist, string xpathoption)
+            public void TireWheelConfigSelect(string param, string xpathlist, string xpathoption)
             {
+                WebBrowser.ElementClick(xpathcarselect);
+                WebBrowser.ElementClick(xpathlist);
+                Wait.ElementIsVisible(xpathoption);
 
+                List<IWebElement> list = browser.FindElements(By.XPath(xpathoption)).ToList();
+                foreach (IWebElement element in list)
+                {
+                    if (element.Text.Contains(param.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                SearchResultIsNotEmpty();
             }
 
-        }
+            // Work of configuration selection filter
+            public void ConfigSelectFilter(string xpathfilter1, string xpathoption1)
+            {
+                Wait.ElementIsVisible(xpathoption1);
+
+                List<IWebElement> list = browser.FindElements(By.XPath(xpathoption1)).ToList();
+                foreach (IWebElement element in list)
+                {
+                    if (element.Text.Contains(xpathfilter1.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                SearchResultIsNotEmpty();
+            }
+            }
     }
 }

@@ -87,6 +87,13 @@ namespace NUnit.PitStop_
         string xpathshowvarstockoption = ".//*[@id='filter-result']//li[1]/div[1]//a";
         string xpathshowvaralternoption = ".//*[@id='filter-result']//li[2]/div[1]//a";
 
+        // Filter by brand list
+        string xpathbrandfilteroption = ".//*[@id='filter-result']//p[2]/span[2]/a";
+        // Filter by season list
+        string xpathseasonfilteroption = ".//*[@id='filter-result']//p[3]/span[2]/a";
+        // Sort list
+        string xpathsortfilteroption = ".//*[@id='filter-result']//p[1]//span[2]/a";
+
 
 
 
@@ -169,12 +176,12 @@ namespace NUnit.PitStop_
             /*test3.GoToFromWheelsOrTires("шины", "Acura", "CL", "1998", "2.3 i", xpathcar, xpathcaroption, xpathcarbrand, xpathcarbrandoption, xpathcarmodel, xpathcarmodeloption, xpathcaryear,
             xpathcaryearoption, xpathcarmodif, xpathcarmodifoption);*/
             // Go to tires search from wheel search
-            /*test3.GoToFromWheelsOrTires("диски", "Acura", "CL", "1998", "2.3 i", xpathcar, xpathcaroption, xpathcarbrand1, xpathcarbrandoption1, xpathcarmodel1, xpathcarmodeloption1,
-                xpathcaryear1, xpathcaryearoption1, xpathcarmodif1, xpathcarmodifoption1);*/
+            test3.GoToFromWheelsOrTires("диски", "Acura", "CL", "1998", "2.3 i", xpathcar, xpathcaroption, xpathcarbrand1, xpathcarbrandoption1, xpathcarmodel1, xpathcarmodeloption1,
+                xpathcaryear1, xpathcaryearoption1, xpathcarmodif1, xpathcarmodifoption1);
             // Tires or wheels configuration selection
-
-            // Search by caryear
-
+            test3.TireWheelConfigSelect("R17 215/45", xpathshowvaraltern, xpathshowvaralternoption);
+            // Work of configuration selection filter
+            test3.ConfigSelectFilter("Continental", xpathbrandfilteroption);
             // Search by carmodification
 
         }
