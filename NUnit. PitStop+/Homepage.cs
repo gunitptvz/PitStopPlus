@@ -27,6 +27,7 @@ namespace NUnit.PitStop_
         string xpathcarbutton1 = ".//div[@class='form f4']//button[1]";
 
         string xpathresultlist = ".//div[@class='tires_catalog_search']//a[@class='tires_catalog_name']";
+        string xpathresultlistprice = ".//div[@class='tires_catalog_search']//div[@class='tires_catalog_price']";
 
         string xpathwheelselect = ".//p[@class='filter_h pd_bord']";
         string xpathcarselect = ".//div[@class='filter']/div[3]//p[@class='filter_h']";
@@ -56,7 +57,10 @@ namespace NUnit.PitStop_
         {
             List<IWebElement> tireslist = browser.FindElements(By.XPath(xpathresultlist)).ToList();
             Assert.IsNotEmpty(tireslist, "Список пустой");
-            Assert.Contains(param1, tireslist, "Список не содержит заданного параметра");
+            foreach (IWebElement element in tireslist)
+            {
+                Assert.That(element.Text.Contains(param1), "Список не содержит заданных параметров");
+            }
         }
 
         // 2 parameters
@@ -3332,7 +3336,7 @@ namespace NUnit.PitStop_
                 SearchResultIsNotEmpty();
             }
 
-            // Work of configuration selection filter
+            // Work of configuration selection filter with 1 parameter
             public void ConfigSelectFilter(string xpathfilter1, string xpathoption1)
             {
                 Wait.ElementIsVisible(xpathoption1);
@@ -3349,6 +3353,85 @@ namespace NUnit.PitStop_
 
                 SearchResultIsNotEmpty();
             }
+
+            // Work of configuration selection filter with 2 parameters
+            public void ConfigSelectFilter(string xpathfilter1, string xpathfilter2, string xpathoption1, string xpathoption2)
+            {
+                Wait.ElementIsVisible(xpathoption1);
+
+                List<IWebElement> list = browser.FindElements(By.XPath(xpathoption1)).ToList();
+                foreach (IWebElement element in list)
+                {
+                    if (element.Text.Contains(xpathfilter1.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementIsVisible(xpathoption2);
+
+                List<IWebElement> list1 = browser.FindElements(By.XPath(xpathoption2)).ToList();
+                foreach (IWebElement element in list1)
+                {
+                    if (element.Text.Contains(xpathfilter2.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                SearchResultIsNotEmpty();
             }
+            // Work of configuration selection filter with 3 parameters
+            public void ConfigSelectFilter(string xpathfilter1, string xpathfilter2, string xpathfilter3, string xpathoption1, string xpathoption2, string xpathoption3, string sortkey)
+            {
+                Wait.ElementIsVisible(xpathoption1);
+
+                List<IWebElement> list = browser.FindElements(By.XPath(xpathoption1)).ToList();
+                foreach (IWebElement element in list)
+                {
+                    if (element.Text.Contains(xpathfilter1.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementIsVisible(xpathoption2);
+
+                List<IWebElement> list1 = browser.FindElements(By.XPath(xpathoption2)).ToList();
+                foreach (IWebElement element in list1)
+                {
+                    if (element.Text.Contains(xpathfilter2.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                Wait.ElementIsVisible(xpathoption3);
+
+                List<IWebElement> list2 = browser.FindElements(By.XPath(xpathoption3)).ToList();
+
+                foreach (IWebElement element in list2)
+                {
+                    if (element.Text.Contains(xpathfilter3.ToString()))
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+
+                List<IWebElement> list4 = browser.FindElements(By.XPath(xpathresultlistprice)).ToList();
+                
+                for(int i = 0; i < list4.Count; i++)
+                {
+                    Assert.That(list4[0].Text.Contains(sortkey), "Список не отсортирован!");
+                }
+                
+
+            }
+        }
     }
 }

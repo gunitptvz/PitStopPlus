@@ -95,32 +95,44 @@ namespace NUnit.PitStop_
         string xpathsortfilteroption = ".//*[@id='filter-result']//p[1]//span[2]/a";
 
 
-
+        [Test]
+        public void TestMethod0()
+        {
+            test2.WheelSearch("Catwild", xpathwheelbrand, xpathwheelbrandoption);
+        }
 
         [Test] // Quick search form testing
         public void TestMethod1()
         {
             // Empty tire search exists warning "Не заданы параметры поиска" 
             test1.TiresSearch();
+
             // Empty search result verification
             test1.SearchResult();
+
             // Data:
             // xpathlist = xpathbrand || xpathwidth || xpathprofile || etc.
             // xpathoption = xpathbrandoption || xpathwidthoption || xpathprofileoption || etc.
 
             // Tire search by brand
             test1.TiresSearch("Dunlop", xpathbrand, xpathbrandoption);
+
             // Tire search "by brand" result testing
             test1.SearchResult("Dunlop");
+
             // Tire search by brand & width
             test1.TiresSearch("Cooper", "285", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption);
+
             // Tire search by brand, width & profile
             test1.TiresSearch("Cooper", "235", "65", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption);
+
             // Tire search by brand, width, profile & diameter
             test1.TiresSearch("Cooper", "235", "65", "R16", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption, xpathdiameter, xpathdiameteroption);
+
             // Tire search by brand, width, profile, diameter & season
             test1.TiresSearch("Cooper", "235", "65", "R16", "Зима", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption, xpathdiameter,
                               xpathdiameteroption, xpathseason, xpathseasonoption);
+
             // Tire search by brand, width, profile, diameter, winter season & thorn
             test1.TiresSearch("Cooper", "235", "65", "R16", "Зимние", "Нет", xpathbrand, xpathbrandoption, xpathwidth, xpathwidthoption, xpathprofile, xpathprofileoption, xpathdiameter,
                               xpathdiameteroption, xpathseason, xpathseasonoption, xpaththorn, xpaththornoption);
@@ -131,27 +143,35 @@ namespace NUnit.PitStop_
         {
             // Empty tire search exists warning "Не заданы параметры поиска"
             test2.WheelSearch();
+
             // Empty search result verification
             test1.SearchResult();
+
             // Data:
             // xpathlist = xpathwheelbrand || xpathwheelwidth || xpathwheelprofile || etc.
             // xpathoption = xpathwheelbrandoption || xpathwheelwidthoption || xpathwheelprofileoption || etc.
 
             // Wheel search by brand
             test2.WheelSearch("Catwild", xpathwheelbrand, xpathwheelbrandoption);
+
             // Wheel search by brand & width
             test2.WheelSearch("Catwild", "6", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption);
+
             // Wheel search by brand, width & diameter
             test2.WheelSearch("Catwild", "6", "15", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption, xpathwheeldiameter, xpathwheeldiameteroption);
+
             // Wheel search by brand, width, diameter & fixture
             test2.WheelSearch("Catwild", "6", "15", "5", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption, xpathwheeldiameter, xpathwheeldiameteroption,
                               xpathfixture, xpathfixtureoption);
+
             // Wheel search by brand, width, diameter, fixture & radiusET
             test2.WheelSearch("Catwild", "6", "15", "5", "39", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption, xpathwheeldiameter, xpathwheeldiameteroption,
                               xpathfixture, xpathfixtureoption, xpathradiusET, xpathradiusEToption);
+
             // Wheel search by brand, width, diameter, fixture, radiusET & diameterPCD
             test2.WheelSearch("Catwild", "6", "15", "5", "39", "114,3", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption, xpathwheeldiameter, xpathwheeldiameteroption,
                               xpathfixture, xpathfixtureoption, xpathradiusET, xpathradiusEToption, xpathwheeldiameterPCD, xpathwheeldiameterPCDoption);
+
             // Wheel search by brand, width, diameter, fixture, radiusET, diameterPCD & diameterCH
             test2.WheelSearch("Catwild", "6", "15", "5", "39", "114,3", "60,1", xpathwheelbrand, xpathwheelbrandoption, xpathwheelwidth, xpathwheelwidthoption, xpathwheeldiameter, xpathwheeldiameteroption,
                               xpathfixture, xpathfixtureoption, xpathradiusET, xpathradiusEToption, xpathwheeldiameterPCD, xpathwheeldiameterPCDoption, xpathweeldiameterCH, xpathweeldiameterCHoption);
@@ -162,28 +182,38 @@ namespace NUnit.PitStop_
         public void TestMethod3()
         {
             // Empty car search exists warning "Не заданы параметры поиска"
-            //test3.CarSearch();
+            test3.CarSearch();
+
             // Empty search result verification
-            //test3.SearchResult();
+            test3.SearchResult();
+
             // Data:
             // xpathlist = xpathcar || xpathcarmodel || xpathcaryear || etc.
             // xpathoption = xpathcaroption || xpathcarmodeloption || xpathcaryearoption || etc.
 
             // Stock and Alternative configuration lists existence
-            /*test3.ConfigurationListsExist("диски", "Acura", "CL", "1998", "2.3 i", xpathcar, xpathcaroption, xpathcarbrand1, xpathcarbrandoption1, xpathcarmodel1, xpathcarmodeloption1,
-                xpathcaryear1, xpathcaryearoption1, xpathcarmodif1, xpathcarmodifoption1);*/
+            test3.ConfigurationListsExist("диски", "Acura", "CL", "1998", "2.3 i", xpathcar, xpathcaroption, xpathcarbrand1, xpathcarbrandoption1, xpathcarmodel1, xpathcarmodeloption1,
+                xpathcaryear1, xpathcaryearoption1, xpathcarmodif1, xpathcarmodifoption1);
+
             // Go to wheel search from tires search
-            /*test3.GoToFromWheelsOrTires("шины", "Acura", "CL", "1998", "2.3 i", xpathcar, xpathcaroption, xpathcarbrand, xpathcarbrandoption, xpathcarmodel, xpathcarmodeloption, xpathcaryear,
-            xpathcaryearoption, xpathcarmodif, xpathcarmodifoption);*/
+            test3.GoToFromWheelsOrTires("шины", "Acura", "CL", "1998", "2.3 i", xpathcar, xpathcaroption, xpathcarbrand, xpathcarbrandoption, xpathcarmodel, xpathcarmodeloption, xpathcaryear,
+            xpathcaryearoption, xpathcarmodif, xpathcarmodifoption);
+
             // Go to tires search from wheel search
             test3.GoToFromWheelsOrTires("диски", "Acura", "CL", "1998", "2.3 i", xpathcar, xpathcaroption, xpathcarbrand1, xpathcarbrandoption1, xpathcarmodel1, xpathcarmodeloption1,
                 xpathcaryear1, xpathcaryearoption1, xpathcarmodif1, xpathcarmodifoption1);
+
             // Tires or wheels configuration selection
             test3.TireWheelConfigSelect("R17 215/45", xpathshowvaraltern, xpathshowvaralternoption);
-            // Work of configuration selection filter
-            test3.ConfigSelectFilter("Continental", xpathbrandfilteroption);
-            // Search by carmodification
 
+            // Work of configuration selection filter with 1 parameter
+            test3.ConfigSelectFilter("Continental", xpathbrandfilteroption);
+
+            // Work of configuration selection filter with 2 parameters
+            test3.ConfigSelectFilter("Continental", "Зимние шины", xpathbrandfilteroption, xpathseasonfilteroption);
+
+            // Work of configuration selection filter with 3 parameters
+            test3.ConfigSelectFilter("Continental", "Зимние шины", "по цене", xpathbrandfilteroption, xpathseasonfilteroption, xpathsortfilteroption, "8 775");
         }
 
         [Test]
