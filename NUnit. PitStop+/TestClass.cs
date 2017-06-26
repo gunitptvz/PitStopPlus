@@ -216,6 +216,12 @@ namespace NUnit.PitStop_
             test3.ConfigSelectFilter("Continental", "Зимние шины", "по цене", xpathbrandfilteroption, xpathseasonfilteroption, xpathsortfilteroption, "8 775");
         }
 
+        [Test] // Left Adv block testing
+        public void TestMethod4()
+        {
+
+        }
+
         [Test]
         public void TestMethod15()
         {

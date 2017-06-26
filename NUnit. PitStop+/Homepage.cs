@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
 using RelevantCodes.ExtentReports;
@@ -3431,6 +3432,22 @@ namespace NUnit.PitStop_
                 }
                 
 
+            }
+        }
+
+        public class LeftAdvBlock
+        {
+            string showadv = ".//*[@id='slider']/div[18]/a";
+            public void LeftAdvBlockTest()
+            {
+                Wait.ElementToBeClickable(showadv);
+
+                List<IWebElement> list = element.FindElements(By.XPath(showadv)).ToList();
+                foreach(IWebElement element in list)
+                {
+                    element.Click();
+                    Thread.Sleep(1500);
+                }
             }
         }
     }
