@@ -24,6 +24,7 @@ namespace NUnit.PitStop_
         WheelsSelection test2 = new WheelsSelection();
         CarSelection test3 = new CarSelection();
         LeftAdvBlock test4 = new LeftAdvBlock();
+        LinksTest test5 = new LinksTest();
 
         // Tires
         string xpathbrand = ".//div[@class='form f1']//fieldset[1]/div[1]";
@@ -94,6 +95,32 @@ namespace NUnit.PitStop_
         string xpathseasonfilteroption = ".//*[@id='filter-result']//p[3]/span[2]/a";
         // Sort list
         string xpathsortfilteroption = ".//*[@id='filter-result']//p[1]//span[2]/a";
+
+        // Homepage header links
+        string favlink = "http://pitstopplus.ru/";
+        string autorepairlink = "http://pitstopplus.ru/autorepair/";
+        string aboutcompanylink = "http://pitstopplus.ru/about/";
+        string paymentlink = "http://pitstopplus.ru/payment-delivery/";
+        string vipcardlink = "http://pitstopplus.ru/vip-card/";
+        string contactlink = "http://pitstopplus.ru/contacts/";
+        string buycreditlink = "http://pitstopplus.ru/";
+        string tireslink = "http://pitstopplus.ru/tyres/";
+        string wheelslink = "http://pitstopplus.ru/wheels/";
+        string actionlink = "http://pitstopplus.ru/actions/";
+        string autoservicelink = "http://pitstopplus.ru/autoservice/";
+
+        // Homepage autoservice tabs links
+        string tiresservicelink = "http://pitstopplus.ru/autoservice/tire-service/";
+        string tiresbalancelink = "http://pitstopplus.ru/autoservice/balancing-tyres/";
+        string tiresrepairlink = "http://pitstopplus.ru/autoservice/repair-tyres/";
+        string wheelsrepairlink = "http://pitstopplus.ru/autoservice/repair-wheels/";
+        string wheelspaintlink = "http://pitstopplus.ru/autoservice/colored-wheels/";
+        string argonweldinglink = "http://pitstopplus.ru/autoservice/argon-welding/";
+        string seasontirereplacementlink = "http://pitstopplus.ru/autoservice/seasonal-tire-replacement/";
+        string seasonalstorage = "http://pitstopplus.ru/autoservice/seasonal-storage/";
+        string nitrogenpumpinglink = "http://pitstopplus.ru/autoservice/pumping-nitrogen/";
+        string chromiumplatinglink = "http://pitstopplus.ru/autoservice/chromium-plating/";
+
 
 
         [Test]
@@ -227,6 +254,12 @@ namespace NUnit.PitStop_
         public void TestMethod5()
         {
 
+        }
+
+        [Test] // Autoservice tabs testing
+        public void TestMethod6()
+        {
+            test5.ServiceTabsClick();
         }
 
         [Test]

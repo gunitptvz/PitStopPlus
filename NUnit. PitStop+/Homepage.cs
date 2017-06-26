@@ -3453,5 +3453,35 @@ namespace NUnit.PitStop_
                 WebBrowser.ElementClick(gotocatalog);
             }
         }
+
+        public class LinksTest
+        {
+            string tabslistxpath = ".//*[@id='menu']/li[4]//a";
+
+            // Homepage links testing
+            public void HomepageLinks(string link)
+            {
+                WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(40));
+                IWebElement txt = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(link)));
+
+                element = browser.FindElement(By.LinkText(link));
+
+                wait = new WebDriverWait(browser, TimeSpan.FromSeconds(40));
+                txt = wait.Until(ExpectedConditions.ElementToBeClickable(By.LinkText(link)));
+
+                element.Click();
+            }
+
+            // Autoservice tabs testing 
+            public void ServiceTabsClick()
+            {
+                List<IWebElement> list = browser.FindElements(By.XPath(tabslistxpath)).ToList();
+                foreach (IWebElement element in list)
+                {
+                    element.Click();
+                    Thread.Sleep(1000);
+                }
+            }
+        }
     }
 }
