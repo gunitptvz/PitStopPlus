@@ -3437,17 +3437,20 @@ namespace NUnit.PitStop_
 
         public class LeftAdvBlock
         {
-            string showadv = ".//*[@id='slider']/div[18]/a";
+            string showadv = ".//div[@class='nivo-controlNav']/a";
+            string gotocatalog = ".//*[@id='slider']/a";
             public void LeftAdvBlockTest()
             {
-                Wait.ElementToBeClickable(showadv);
+                Wait.ElementIsVisible(showadv);
 
-                List<IWebElement> list = element.FindElements(By.XPath(showadv)).ToList();
-                foreach(IWebElement element in list)
+                List<IWebElement> list = browser.FindElements(By.XPath(showadv)).ToList();
+                foreach (IWebElement element in list)
                 {
                     element.Click();
-                    Thread.Sleep(1500);
+                    Thread.Sleep(1000);
                 }
+
+                WebBrowser.ElementClick(gotocatalog);
             }
         }
     }

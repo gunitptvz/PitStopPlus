@@ -23,6 +23,7 @@ namespace NUnit.PitStop_
         TiresSelection test1 = new TiresSelection();
         WheelsSelection test2 = new WheelsSelection();
         CarSelection test3 = new CarSelection();
+        LeftAdvBlock test4 = new LeftAdvBlock();
 
         // Tires
         string xpathbrand = ".//div[@class='form f1']//fieldset[1]/div[1]";
@@ -218,6 +219,12 @@ namespace NUnit.PitStop_
 
         [Test] // Left Adv block testing
         public void TestMethod4()
+        {
+            test4.LeftAdvBlockTest();
+        }
+
+        [Test]
+        public void TestMethod5()
         {
 
         }
