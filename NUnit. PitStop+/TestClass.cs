@@ -98,35 +98,78 @@ namespace NUnit.PitStop_
 
         // Homepage header links
         string favlink = "http://pitstopplus.ru/";
+        string favlinkclass = "main_logo";
         string autorepairlink = "http://pitstopplus.ru/autorepair/";
+        string autorepairlinkxpath = ".//*[@href='/autorepair/']";
         string aboutcompanylink = "http://pitstopplus.ru/about/";
+        string aboutcompanylinkxpath = ".//*[@href='/about/']";
         string paymentlink = "http://pitstopplus.ru/payment-delivery/";
+        string paymentlinkxpath = ".//*[@href='/payment-delivery/']";
         string vipcardlink = "http://pitstopplus.ru/vip-card/";
+        string vipcardlinkxpath = ".//*[@href='/vip-card/']";
         string contactlink = "http://pitstopplus.ru/contacts/";
+        string contactlinkxpath = ".//*[@href='/contacts/']";
         string buycreditlink = "http://pitstopplus.ru/";
+        string buycreditlinkxpath = ".//*[@src='/bitrix/templates/two_column_orange/images/credit-1.jpg']";
         string tireslink = "http://pitstopplus.ru/tyres/";
+        string tireslinkxpath = ".//*[@href='/tyres/']";
         string wheelslink = "http://pitstopplus.ru/wheels/";
+        string wheelslinkxpath = ".//*[@href='/wheels/']";
         string actionlink = "http://pitstopplus.ru/actions/";
+        string actionlinkxpath = ".//*[@href='/action/']";
         string autoservicelink = "http://pitstopplus.ru/autoservice/";
+        string autoservicelinkxpath = ".//*[@href='/autoservice/']";
 
         // Homepage autoservice tabs links
-        string tiresservicelink = "http://pitstopplus.ru/autoservice/tire-service/";
-        string tiresbalancelink = "http://pitstopplus.ru/autoservice/balancing-tyres/";
-        string tiresrepairlink = "http://pitstopplus.ru/autoservice/repair-tyres/";
+        string tireservicelink = "http://pitstopplus.ru/autoservice/tire-service/";
+        string tireservicelinkxpath = ".//*[@href='/autoservice/tire-service/']";
+        string tirebalancelink = "http://pitstopplus.ru/autoservice/balancing-tyres/";
+        string tirebalancelinkxpath = ".//*[@href='/autoservice/balancing-tyres/']";
+        string tirerepairlink = "http://pitstopplus.ru/autoservice/repair-tyres/";
+        string tirerepairlinkxpath = ".//*[@href='/autoservice/repair-tyres/']";
         string wheelsrepairlink = "http://pitstopplus.ru/autoservice/repair-wheels/";
+        string wheelsrepairlinkxpath = ".//*[@href='/autoservice/repair-wheels/']";
         string wheelspaintlink = "http://pitstopplus.ru/autoservice/colored-wheels/";
+        string wheelspaintlinkxpath = ".//*[@href='/autoservice/colored-wheels/']";
         string argonweldinglink = "http://pitstopplus.ru/autoservice/argon-welding/";
+        string argonweldinglinkxpath = ".//*[@href='/autoservice/argon-welding/']";
         string seasontirereplacementlink = "http://pitstopplus.ru/autoservice/seasonal-tire-replacement/";
-        string seasonalstorage = "http://pitstopplus.ru/autoservice/seasonal-storage/";
+        string seasontirereplacementlinkxpath = ".//*[@href='/autoservice/seasonal-tire-replacement/']";
+        string seasonalstoragelink = "http://pitstopplus.ru/autoservice/seasonal-storage/";
+        string seasonalstoreagelinkxpath = ".//*[@href='/autoservice/seasonal-storage/']";
         string nitrogenpumpinglink = "http://pitstopplus.ru/autoservice/pumping-nitrogen/";
+        string nitrogenpumpinglinkxpath = ".//*[@href='/autoservice/pumping-nitrogen/']";
         string chromiumplatinglink = "http://pitstopplus.ru/autoservice/chromium-plating/";
+        string chromiumplatinglinkxpath = ".//*[@href='/autoservice/chromium-plating/']";
 
+        // Homepage our services & offers links
+        string tireservicelink2 = "http://pitstopplus.ru/autoservice/tire-service/";
+        string tireservicelinkxpath2 = ".//*[@class='services']/a[1]";
+        string tirerepairlink2 = "http://pitstopplus.ru/autoservice/repair-tyres/";
+        string tirerepairlinkxpath2 = ".//*[@class='services']/a[2]";
+        string seasonalstoragelink2 = "http://pitstopplus.ru/autoservice/seasonal-storage/";
+        string seasonalstoreagelinkxpath2 = ".//*[@class='services']/a[3]";
+        string comfortpaymentlink = "http://pitstopplus.ru/payment-delivery/";
+        string comfortpaymentlinkxpath = ".//*[@class='services']/a[5]";
+        string specialforviplink = "http://pitstopplus.ru/vip-card/";
+        string specialforviplinkxpath = ".//*[@class='services']/a[6]";
 
+        // Footer links
+        string autorepairlink2 = "http://pitstopplus.ru/autorepair/";
+        string autorepairlinkxpath2 = ".//*[@id='footer-nav']//li[1]//a[1]";
+        string aboutcompanylink2 = "http://pitstopplus.ru/about/";
+        string aboutcompanylinkxpath2 = ".//*[@id='footer-nav']//li[2]//a[1]";
+        string paymentlink2 = "http://pitstopplus.ru/payment-delivery/";
+        string paymentlinkxpath2 = ".//*[@id='footer-nav']//li[3]//a[1]";
+        string vipcardlink2 = "http://pitstopplus.ru/vip-card/";
+        string vipcardlinkxpath2 = ".//*[@id='footer-nav']//li[4]//a[1]";
+        string contactlink2 = "http://pitstopplus.ru/contacts/";
+        string contactlinkxpath2 = ".//*[@id='footer-nav']//li[5]//a[1]";
 
         [Test]
         public void TestMethod0()
         {
-            test2.WheelSearch("Catwild", xpathwheelbrand, xpathwheelbrandoption);
+            
         }
 
         [Test] // Quick search form testing
@@ -253,13 +296,13 @@ namespace NUnit.PitStop_
         [Test]
         public void TestMethod5()
         {
-
+            test5.HomepageLinks(autorepairlink2, autorepairlinkxpath2, "XPath");
         }
 
         [Test] // Autoservice tabs testing
         public void TestMethod6()
         {
-            test5.ServiceTabsClick();
+            test5.ServiceTabsClick(chromiumplatinglink, chromiumplatinglinkxpath);
         }
 
         [Test]

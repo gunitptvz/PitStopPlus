@@ -12,6 +12,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Interactions;
 
 namespace NUnit.PitStop_
 {
@@ -80,10 +81,10 @@ namespace NUnit.PitStop_
         {
             List<IWebElement> tireslist = browser.FindElements(By.XPath(xpathresultlist)).ToList();
             Assert.IsNotEmpty(tireslist, "Список пустой");
-                foreach (IWebElement element in tireslist)
-                {
-                    Assert.That(element.Text.Contains(param1) & element.Text.Contains(param2) & element.Text.Contains(param3), "Список не содержит заданных параметров");
-                } 
+            foreach (IWebElement element in tireslist)
+            {
+                Assert.That(element.Text.Contains(param1) & element.Text.Contains(param2) & element.Text.Contains(param3), "Список не содержит заданных параметров");
+            }
         }
         // 4 parameters
         public void SearchResult(string param1, string param2, string param3, string param4)
@@ -3213,15 +3214,15 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                if(param1 == "шины")
+                if (param1 == "шины")
                 {
                     WebBrowser.ButtonClick(xpathcarbutton);
                 }
-                if(param1 == "диски")
+                if (param1 == "диски")
                 {
                     WebBrowser.ButtonClick(xpathcarbutton1);
                 }
-                
+
                 Wait.ElementIsVisible(xpathstockconfig);
                 Wait.ElementIsVisible(xpathalternconfig);
 
@@ -3301,14 +3302,14 @@ namespace NUnit.PitStop_
                     }
                 }
 
-                if(param1 == "шины")
+                if (param1 == "шины")
                 {
                     WebBrowser.ButtonClick(xpathcarbutton);
                     element = browser.FindElement(By.LinkText("посмотреть диски"));
                     Assert.AreEqual("посмотреть диски", element.Text, "Элемент не найден");
                     element.Click();
                 }
-                if(param1 == "диски")
+                if (param1 == "диски")
                 {
                     WebBrowser.ButtonClick(xpathcarbutton1);
                     element = browser.FindElement(By.LinkText("посмотреть шины"));
@@ -3425,12 +3426,12 @@ namespace NUnit.PitStop_
                 }
 
                 List<IWebElement> list4 = browser.FindElements(By.XPath(xpathresultlistprice)).ToList();
-                
-                for(int i = 0; i < list4.Count; i++)
+
+                for (int i = 0; i < list4.Count; i++)
                 {
                     Assert.That(list4[0].Text.Contains(sortkey), "Список не отсортирован!");
                 }
-                
+
 
             }
         }
@@ -3456,31 +3457,83 @@ namespace NUnit.PitStop_
 
         public class LinksTest
         {
-            string tabslistxpath = ".//*[@id='menu']/li[4]//a";
+            string autoservicelinkxpath = ".//*[@href='/autoservice/']";
 
             // Homepage links testing
-            public void HomepageLinks(string link)
+            public void HomepageLinks(string link, string linktext, string searchby)
             {
-                WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(40));
-                IWebElement txt = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(link)));
+                if (searchby == "ClassName")
+                {
+                    WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(40));
+                    IWebElement txt = wait.Until(ExpectedConditions.ElementIsVisible(By.ClassName(linktext)));
 
-                element = browser.FindElement(By.LinkText(link));
+                    element = browser.FindElement(By.ClassName(linktext));
 
-                wait = new WebDriverWait(browser, TimeSpan.FromSeconds(40));
-                txt = wait.Until(ExpectedConditions.ElementToBeClickable(By.LinkText(link)));
+                    wait = new WebDriverWait(browser, TimeSpan.FromSeconds(40));
+                    txt = wait.Until(ExpectedConditions.ElementToBeClickable(By.ClassName(linktext)));
 
-                element.Click();
+                    element.Click();
+                    Assert.AreEqual(link, browser.Url, "Ссылка не работает!");
+                }
+
+                if (searchby == "Id")
+                {
+                    WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(40));
+                    IWebElement txt = wait.Until(ExpectedConditions.ElementIsVisible(By.Id(linktext)));
+
+                    element = browser.FindElement(By.Id(linktext));
+
+                    wait = new WebDriverWait(browser, TimeSpan.FromSeconds(40));
+                    txt = wait.Until(ExpectedConditions.ElementToBeClickable(By.Id(linktext)));
+
+                    element.Click();
+                    Assert.AreEqual(link, browser.Url, "Ссылка не работает!");
+                }
+
+                if (searchby == "LinkText")
+                {
+                    WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(40));
+                    IWebElement txt = wait.Until(ExpectedConditions.ElementIsVisible(By.LinkText(linktext)));
+
+                    element = browser.FindElement(By.LinkText(linktext));
+
+                    wait = new WebDriverWait(browser, TimeSpan.FromSeconds(40));
+                    txt = wait.Until(ExpectedConditions.ElementToBeClickable(By.LinkText(linktext)));
+
+                    element.Click();
+                    Assert.AreEqual(link, browser.Url, "Ссылка не работает!");
+                }
+
+
+                if (searchby == "XPath")
+                {
+                    WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(40));
+                    IWebElement txt = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(linktext)));
+
+                    element = browser.FindElement(By.XPath(linktext));
+
+                    wait = new WebDriverWait(browser, TimeSpan.FromSeconds(40));
+                    txt = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(linktext)));
+
+                    element.Click();
+                    Assert.AreEqual(link, browser.Url, "Ссылка не работает!");
+                }
             }
 
             // Autoservice tabs testing 
-            public void ServiceTabsClick()
+            public void ServiceTabsClick(string link, string xpath)
             {
-                List<IWebElement> list = browser.FindElements(By.XPath(tabslistxpath)).ToList();
-                foreach (IWebElement element in list)
-                {
-                    element.Click();
-                    Thread.Sleep(1000);
-                }
+                Actions instance = new Actions(browser);
+                Wait.ElementIsVisible(autoservicelinkxpath);
+                element = browser.FindElement(By.XPath(autoservicelinkxpath));
+                instance.MoveToElement(element).Perform();
+
+                Wait.ElementIsVisible(xpath);
+                element = browser.FindElement(By.XPath(xpath));
+                Wait.ElementToBeClickable(xpath);
+                element.Click();
+                Assert.AreEqual(link, browser.Url, "Ссылка не работает!");
+
             }
         }
     }
