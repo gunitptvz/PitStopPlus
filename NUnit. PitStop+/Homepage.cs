@@ -3536,5 +3536,32 @@ namespace NUnit.PitStop_
 
             }
         }
+
+        public class Searchstring
+        {
+            string text = ".//h1[@class='tires_catalog_title']";
+            string expected = "ничего не найдено";
+
+            // Empty search string testing
+            public void EmptySearch(string xpath)
+            {
+                Wait.ElementIsVisible(xpath);
+                WebBrowser.ElementClick(xpath);
+                element = browser.FindElement(By.XPath(text));
+                Assert.That(element.Text.Contains(expected), "Не соответствует требованиям");
+            }
+
+            // Product search testing
+            public void ProductSearch(string xpath, string searchtext)
+            {
+                Wait.ElementIsVisible(xpath);
+                element = browser.FindElement(By.XPath(xpath));
+                element.Click();
+                element.SendKeys(searchtext);
+                element.Submit();
+                element = browser.FindElement(By.PartialLinkText(searchtext));
+                Assert.NotNull(element, "Поиск завершился неуспешно");
+            }
+        }
     }
 }

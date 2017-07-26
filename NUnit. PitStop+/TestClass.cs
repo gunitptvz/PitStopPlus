@@ -25,6 +25,7 @@ namespace NUnit.PitStop_
         CarSelection test3 = new CarSelection();
         LeftAdvBlock test4 = new LeftAdvBlock();
         LinksTest test5 = new LinksTest();
+        Searchstring test6 = new Searchstring();
 
         // Tires
         string xpathbrand = ".//div[@class='form f1']//fieldset[1]/div[1]";
@@ -166,13 +167,18 @@ namespace NUnit.PitStop_
         string contactlink2 = "http://pitstopplus.ru/contacts/";
         string contactlinkxpath2 = ".//*[@id='footer-nav']//li[5]//a[1]";
 
+        // Search string
+        string textboxxpath = ".//*[@id='title-search-input']";
+        string searchxpath = ".//*[@id='search_sub']";
+        string searchtext = "Cooper";
+
         [Test]
         public void TestMethod0()
         {
             
         }
 
-        [Test] // Quick search form testing
+        [Test, Description("Quick search form testing. Tires search")]
         public void TestMethod1()
         {
             // Empty tire search exists warning "Не заданы параметры поиска" 
@@ -209,7 +215,7 @@ namespace NUnit.PitStop_
                               xpathdiameteroption, xpathseason, xpathseasonoption, xpaththorn, xpaththornoption);
         }
 
-        [Test] // Quick search form testing
+        [Test, Description("Quick search form testing. Wheels search")]
         public void TestMethod2()
         {
             // Empty tire search exists warning "Не заданы параметры поиска"
@@ -249,7 +255,7 @@ namespace NUnit.PitStop_
 
         }
 
-        [Test] // Qucik search form testing
+        [Test, Description("Quick search form testing. Car search")]
         public void TestMethod3()
         {
             // Empty car search exists warning "Не заданы параметры поиска"
@@ -287,22 +293,29 @@ namespace NUnit.PitStop_
             test3.ConfigSelectFilter("Continental", "Зимние шины", "по цене", xpathbrandfilteroption, xpathseasonfilteroption, xpathsortfilteroption, "8 775");
         }
 
-        [Test] // Left Adv block testing
+        [Test, Description("Left Adv block testing")]
         public void TestMethod4()
         {
             test4.LeftAdvBlockTest();
         }
 
-        [Test]
+        [Test, Description("Autoservice homepage links testing")]
         public void TestMethod5()
         {
             test5.HomepageLinks(autorepairlink2, autorepairlinkxpath2, "XPath");
         }
 
-        [Test] // Autoservice tabs testing
+        [Test, Description("Autoservice tabs testing")]
         public void TestMethod6()
         {
             test5.ServiceTabsClick(chromiumplatinglink, chromiumplatinglinkxpath);
+        }
+
+        [Test, Description("Search string testing")]
+        public void TestMethod7()
+        {
+            //test6.EmptySearch(searchxpath);
+            test6.ProductSearch(textboxxpath, searchtext);
         }
 
         [Test]
